@@ -15,11 +15,24 @@ import ubet.database.UserDB;
 import ubet.util.StringTemplate;
 import ubet.util.Variables;
 
+/**
+ */
 @Path("/users")
 public class UserServer {
 
 	public HashMap<String, Object> values = new HashMap<String, Object>();
 
+	/**
+	 * Method createUser.
+	 * @param firstName String
+	 * @param secondName String
+	 * @param email String
+	 * @param username String
+	 * @param password String
+	 * @param language int
+	 * @return Response
+	 * @throws Exception
+	 */
 	@Path("/createuser")
 	@GET
 	@Produces("text/html")
@@ -43,6 +56,13 @@ public class UserServer {
 		return Response.status(Response.Status.ACCEPTED).entity(output).build();
 	}
 
+	/**
+	 * Method loginUser.
+	 * @param username String
+	 * @param password String
+	 * @return Response
+	 * @throws Exception
+	 */
 	@Path("/login")
 	@GET
 	@Produces("text/html")
@@ -78,6 +98,14 @@ public class UserServer {
 					.build();
 	}
 
+	/**
+	 * Method changePassword.
+	 * @param username String
+	 * @param newPassword String
+	 * @param token String
+	 * @return Response
+	 * @throws Exception
+	 */
 	@Path("/changepassword")
 	@GET
 	@Produces("text/html")
@@ -103,6 +131,12 @@ public class UserServer {
 		return Response.status(responseStatus).entity(output).build();
 	}
 
+	/**
+	 * Method refreshToken.
+	 * @param username String
+	 * @param token String
+	 * @throws Exception
+	 */
 	@Path("/refreshtoken")
 	@GET
 	@Produces("text/html")
@@ -112,6 +146,13 @@ public class UserServer {
 			AuthTokenManager.authenticateToken(token);
 	}
 
+	/**
+	 * Method logoffUser.
+	 * @param username String
+	 * @param token String
+	 * @return Response
+	 * @throws Exception
+	 */
 	@Path("/logoff")
 	@GET
 	@Produces("text/html")
@@ -136,6 +177,14 @@ public class UserServer {
 		return Response.status(responseStatus).entity(output).build();
 	}
 
+	/**
+	 * Method getCoins.
+	 * @param username String
+	 * @param token String
+	 * @param requestedUser String
+	 * @return Response
+	 * @throws Exception
+	 */
 	@Path("/getcoins")
 	@GET
 	@Produces("text/html")
@@ -164,6 +213,13 @@ public class UserServer {
 		return Response.status(responseStatus).entity(output).build();
 	}
 
+	/**
+	 * Method getAllUsers.
+	 * @param username String
+	 * @param token String
+	 * @return Response
+	 * @throws Exception
+	 */
 	@Path("/getallusers")
 	@GET
 	@Produces("text/html")
@@ -208,6 +264,14 @@ public class UserServer {
 		return Response.status(responseStatus).entity(output).build();
 	}
 
+	/**
+	 * Method getScore.
+	 * @param username String
+	 * @param token String
+	 * @param requestedUser String
+	 * @return Response
+	 * @throws Exception
+	 */
 	@Path("/getscore")
 	@GET
 	@Produces("text/html")

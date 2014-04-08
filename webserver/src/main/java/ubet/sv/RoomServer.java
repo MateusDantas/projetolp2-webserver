@@ -13,6 +13,8 @@ import ubet.database.RoomsDB;
 import ubet.database.UserDB;
 import ubet.util.StringTemplate;
 
+/**
+ */
 @Path("/rooms")
 public class RoomServer {
 
@@ -25,9 +27,10 @@ public class RoomServer {
 	 * @param limExtra
 	 * @param password
 	 * @param token
-	 * @return
-	 * @throws Exception
-	 */
+	
+	
+	 * @return Response
+	 * @throws Exception */
 	@Path("/createroom")
 	@GET
 	@Produces("text/html")
@@ -62,9 +65,10 @@ public class RoomServer {
 	 * @param username
 	 * @param token
 	 * @param requestedUser
-	 * @return
-	 * @throws Exception
-	 */
+	
+	
+	 * @return Response
+	 * @throws Exception */
 	@Path("/getroomscreatedbyuser")
 	@GET
 	@Produces("text/html")
@@ -117,9 +121,10 @@ public class RoomServer {
 	 * @param password
 	 * @param roomId
 	 * @param token
-	 * @return
-	 * @throws Exception
-	 */
+	
+	
+	 * @return Response
+	 * @throws Exception */
 	@Path("/entertoroom")
 	@GET
 	@Produces("text/html")
@@ -150,9 +155,10 @@ public class RoomServer {
 	 * @param username
 	 * @param roomId
 	 * @param token
-	 * @return
-	 * @throws Exception
-	 */
+	
+	
+	 * @return Response
+	 * @throws Exception */
 	@Path("/usersinroom")
 	@GET
 	@Produces("text/html")
@@ -207,9 +213,10 @@ public class RoomServer {
 	 * @param username
 	 * @param token
 	 * @param requestedUser
-	 * @return
-	 * @throws Exception
-	 */
+	
+	
+	 * @return Response
+	 * @throws Exception */
 	@Path("/roomsbyuser")
 	@GET
 	@Produces("text/html")
@@ -262,6 +269,13 @@ public class RoomServer {
 		return Response.status(responseStatus).entity(output).build();
 	}
 
+	/**
+	 * Method getAllRooms.
+	 * @param username String
+	 * @param token String
+	 * @return Response
+	 * @throws Exception
+	 */
 	@Path("/getallrooms")
 	@GET
 	@Produces("text/html")
@@ -316,9 +330,10 @@ public class RoomServer {
 	 * @param roomId
 	 * @param requestedUser
 	 * @param token
-	 * @return
-	 * @throws Exception
-	 */
+	
+	
+	 * @return Response
+	 * @throws Exception */
 	@Path("/pointsuser")
 	@GET
 	@Produces("text/html")
@@ -351,9 +366,10 @@ public class RoomServer {
 	 * @param username
 	 * @param roomId
 	 * @param token
-	 * @return
-	 * @throws Exception
-	 */
+	
+	
+	 * @return Response
+	 * @throws Exception */
 	@Path("/isuserinroom")
 	@GET
 	@Produces("text/html")

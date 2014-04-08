@@ -9,19 +9,22 @@ import ubet.database.UserDB;
 import ubet.database.UserRoomDB;
 import ubet.util.Variables;
 
+/**
+ */
 public abstract class Rooms {
 
 	/**
-	 * 
+	 * Create room
 	 * @param name
 	 * @param username
 	 * @param priceRoom
 	 * @param priceExtra
 	 * @param limExtra
 	 * @param password
-	 * @return
-	 * @throws SQLException
-	 */
+	
+	
+	 * @return int Variables.getValue()
+	 * @throws SQLException */
 	public static int createRoom(String name, String username, int priceRoom,
 			int priceExtra, int limExtra, String password) throws SQLException {
 
@@ -56,9 +59,10 @@ public abstract class Rooms {
 
 
 	/**
-	 * 
+	 * Get room`s extra bet`s limit
 	 * @param roomId
-	 * @return
+	
+	 * @return int The room`s extra bet`s limit
 	 */
 	public static int getRomExtraLim(int roomId) {
 
@@ -70,9 +74,10 @@ public abstract class Rooms {
 	}
 
 	/**
-	 * 
+	 * Get room`s extra price for each extra bet
 	 * @param roomId
-	 * @return
+	
+	 * @return int Room`s extra price for each extra bet
 	 */
 	public static int getRoomPriceExtra(int roomId) {
 
@@ -84,11 +89,12 @@ public abstract class Rooms {
 	}
 
 	/**
-	 * 
+	 * List of Rooms created by user
 	 * @param username
-	 * @return
-	 * @throws SQLException
-	 */
+	
+	
+	 * @return List<RoomsDB>
+	 * @throws SQLException */
 	public static List<RoomsDB> getRoomsCreatedByUser(String username)
 			throws SQLException {
 
@@ -99,11 +105,9 @@ public abstract class Rooms {
 	}
 
 	/**
-	 * 
-	 * @param username
-	 * @return
-	 * @throws SQLException
-	 */
+	 * List of all rooms registered on the server
+	 * @return List<RoomsDB>
+	 * @throws SQLException */
 	public static List<RoomsDB> getAllRooms() throws SQLException {
 
 		RoomsDB newQuery = new RoomsDB();
@@ -111,12 +115,13 @@ public abstract class Rooms {
 	}
 
 	/**
-	 * 
+	 * Check whether user is inside room or not
 	 * @param username
 	 * @param roomId
-	 * @return
-	 * @throws SQLException
-	 */
+	
+	
+	 * @return boolean
+	 * @throws SQLException */
 	public static boolean isUserInRoom(String username, int roomId)
 			throws SQLException {
 
@@ -127,13 +132,14 @@ public abstract class Rooms {
 	}
 
 	/**
-	 * 
+	 * Register user into room
 	 * @param nickname
 	 * @param password
 	 * @param roomId
-	 * @return
-	 * @throws SQLException
-	 */
+	
+	
+	 * @return int Variables.getValue()
+	 * @throws SQLException */
 	public static int enterToRoom(String nickname, String password, int roomId)
 			throws SQLException {
 
@@ -176,11 +182,10 @@ public abstract class Rooms {
 	}
 
 	/**
-	 * 
-	 * @param roomId
-	 * @return
-	 * @throws SQLException
-	 */
+	 * Get a list of all users inside room
+	 * @param roomId	
+	 * @return List<UserDB>
+	 * @throws SQLException */
 	public static List<UserDB> getUsersInRoom(int roomId) throws SQLException {
 
 		UserRoomDB newRoom = new UserRoomDB();
@@ -201,11 +206,10 @@ public abstract class Rooms {
 	}
 
 	/**
-	 * 
+	 * Get a list of all rooms the user is signed in
 	 * @param nickname
-	 * @return
-	 * @throws SQLException
-	 */
+	 * @return List<RoomsDB>
+	 * @throws SQLException */
 	public static List<RoomsDB> getRoomsByUser(String nickname)
 			throws SQLException {
 
@@ -237,12 +241,11 @@ public abstract class Rooms {
 	}
 
 	/**
-	 * 
+	 * Get the total points made by user inside room
 	 * @param nickname
 	 * @param roomId
-	 * @return
-	 * @throws SQLException
-	 */
+	 * @return int
+	 * @throws SQLException */
 	public static int getPointsByUserInRoom(String nickname, int roomId)
 			throws SQLException {
 
@@ -259,6 +262,14 @@ public abstract class Rooms {
 	}
 
 	
+	/**
+	 * Set the user's points inside room
+	 * @param userId int
+	 * @param roomId int
+	 * @param newPoints int
+	 * @return boolean
+	 * @throws SQLException
+	 */
 	protected static boolean setPointsUserInRoom(int userId, int roomId, int newPoints) throws SQLException {
 		
 		UserRoomDB newUserRoom = new UserRoomDB();
@@ -274,13 +285,13 @@ public abstract class Rooms {
 	}
 	
 	/**
-	 * hmm
 	 * 
+	 * Set the user's points inside room
 	 * @param nickname
 	 * @param roomId
-	 * @param newPoints
-	 * @throws SQLException
-	 */
+	 * @param newPoint
+	 * @return boolean
+	 * @throws SQLException */
 	protected static boolean setPointsUserInRoom(String nickname, int roomId,
 			int newPoints) throws SQLException {
 
@@ -292,6 +303,14 @@ public abstract class Rooms {
 		return setPointsUserInRoom(userId, roomId, newPoints);
 	}
 
+	/**
+	 * Add points to user signed in to room
+	 * @param userId int
+	 * @param roomId int
+	 * @param points int
+	 * @return boolean
+	 * @throws SQLException
+	 */
 	public static boolean addPointsUserInRoom(int userId, int roomId, int points)
 			throws SQLException {
 
@@ -307,6 +326,14 @@ public abstract class Rooms {
 		return false;
 	}
 	
+	/**
+	 * Add points to user signed in to room
+	 * @param nickname String
+	 * @param roomId int
+	 * @param points int
+	 * @return boolean
+	 * @throws SQLException
+	 */
 	public static boolean addPointsUserInRoom(String nickname, int roomId,
 			int points) throws SQLException {
 

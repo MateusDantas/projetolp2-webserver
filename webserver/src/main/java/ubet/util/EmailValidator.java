@@ -2,6 +2,8 @@ package ubet.util;
 
 import java.util.regex.*;
 
+/**
+ */
 public class EmailValidator {
 
 	private Pattern pattern;
@@ -15,6 +17,11 @@ public class EmailValidator {
 		pattern = Pattern.compile(EMAIL_PATTERN);
 	}
 	
+	/**
+	 * Method isEmailValid.
+	 * @param hex String
+	 * @return boolean
+	 */
 	public boolean isEmailValid(final String hex) {
 		
 		matcher = pattern.matcher(hex);

@@ -110,9 +110,10 @@ public class UserDB extends Database {
 	 * 
 	 * 
 	 * 
+	
 	 * @return Variables.(SERVER_DOWN, INVALID_USERNAME, INVALID_EMAIL,
 	 *         INVALID_NAME, INVALID_PASSWORD, USERNAME_EXISTS, EMAIL_EXISTS) * @throws
-	 *         SQLException * @throws SQLException * @throws SQLException
+	 *         SQLException * @throws SQLException * @throws SQLException * @throws SQLException
 	 */
 	public Variables addUser() throws SQLException {
 
@@ -158,10 +159,11 @@ public class UserDB extends Database {
 	 * 
 	 * 
 	 * 
+	
 	 * @return Variables.(SERVER_DOWN, INVALID_USERNAME, INVALID_EMAIL,
 	 *         INVALID_NAME, INVALID_PASSWORD,USER_DOES_NOT_EXIST,
 	 *         USERNAME_EXISTS, EMAIL_EXISTS) * @throws SQLException * @throws
-	 *         SQLException * @throws SQLException
+	 *         SQLException * @throws SQLException * @throws SQLException
 	 */
 	public Variables updateUser() throws SQLException {
 
@@ -210,8 +212,9 @@ public class UserDB extends Database {
 	 * 
 	 * 
 	 * 
+	
 	 * @return True if exists such user, False otherwise * @throws SQLException
-	 *         * @throws SQLException * @throws SQLException
+	 *         * @throws SQLException * @throws SQLException * @throws SQLException
 	 */
 	public boolean userExists(String str) throws SQLException {
 
@@ -231,8 +234,9 @@ public class UserDB extends Database {
 	 * 
 	 * 
 	 * 
+	
 	 * @return The ID of such user * @throws SQLException * @throws SQLException
-	 *         * @throws SQLException
+	 *         * @throws SQLException * @throws SQLException
 	 */
 	public int getUserByEmail(String email, boolean flagToUpdate)
 			throws SQLException {
@@ -252,12 +256,15 @@ public class UserDB extends Database {
 	 * 
 	 * 
 	 * 
+	
 	 * @return The ID of such user * @throws SQLException * @throws SQLException
-	 *         * @throws SQLException
+	 *         * @throws SQLException * @throws SQLException
 	 */
 	public int getUserByNickname(String nowNickname, boolean flagToUpdate)
 			throws SQLException {
 
+		if (!isValidUsername(nowNickname))
+			return Variables.INVALID_NAME.getValue();
 		List<Object> newList = new ArrayList<Object>();
 		newList.add(nowNickname);
 		return getUser(GET_BY_NICKNAME, newList, flagToUpdate);
@@ -273,8 +280,9 @@ public class UserDB extends Database {
 	 * 
 	 * 
 	 * 
+	
 	 * @return The ID of such user * @throws SQLException * @throws SQLException
-	 *         * @throws SQLException
+	 *         * @throws SQLException * @throws SQLException
 	 */
 	public int getUserById(int nowUserId, boolean flagToUpdate)
 			throws SQLException {
@@ -290,8 +298,9 @@ public class UserDB extends Database {
 	 * 
 	 * 
 	 * 
+	
 	 * @return The ID of such user or -1 if it doesn't exist * @throws
-	 *         SQLException * @throws SQLException * @throws SQLException
+	 *         SQLException * @throws SQLException * @throws SQLException * @throws SQLException
 	 */
 	public int getUser() throws SQLException {
 
@@ -302,7 +311,8 @@ public class UserDB extends Database {
 
 	/**
 	 * 
-	 * @return
+	
+	 * @return List<UserDB>
 	 */
 	public List<UserDB> getAllUsers() {
 
@@ -315,7 +325,8 @@ public class UserDB extends Database {
 	 * 
 	 * @param pattern
 	 * @param values
-	 * @return
+	
+	 * @return List<UserDB>
 	 */
 	public List<UserDB> getUser(String pattern, List<Object> values) {
 
@@ -363,7 +374,8 @@ public class UserDB extends Database {
 	 * 
 	 * 
 	 * 
-	 * @return int * @throws SQLException * @throws SQLException
+	
+	 * @return int * @throws SQLException * @throws SQLException * @throws SQLException
 	 */
 	public int getUser(String pattern, List<Object> values, boolean flagToUpdate)
 			throws SQLException {
@@ -403,8 +415,8 @@ public class UserDB extends Database {
 	 * @param nowPassword
 	 *            A password to be hashed
 	 * 
-	 * @return The password's hash
-	 */
+	
+	 * @return The password's hash */
 	public String hashPassword(String nowPassword) {
 
 		String originalPassword = nowPassword;
@@ -421,8 +433,8 @@ public class UserDB extends Database {
 	 * @param hashedPassword
 	 *            Password already hashed to be compared to textPassword
 	 * 
-	 * @return True if they're the same, False otherwise
-	 */
+	
+	 * @return True if they're the same, False otherwise */
 	public boolean autenticatePassword(String textPassword,
 			String hashedPassword) {
 
@@ -435,8 +447,8 @@ public class UserDB extends Database {
 	 * @param textPassword
 	 *            Password in Plain Text to be compared
 	 * 
-	 * @return True if textPassword is the same as this.currentPassword
-	 */
+	
+	 * @return True if textPassword is the same as this.currentPassword */
 	public boolean autenticatePassword(String textPassword) {
 
 		return autenticatePassword(textPassword, this.hashedPassword);
@@ -447,8 +459,8 @@ public class UserDB extends Database {
 	 * @param name
 	 * 
 	 * 
-	 * @return boolean
-	 */
+	
+	 * @return boolean */
 	public boolean isValidName(String name) {
 
 		if (name == null)
@@ -461,8 +473,8 @@ public class UserDB extends Database {
 	 * @param password
 	 * 
 	 * 
-	 * @return boolean
-	 */
+	
+	 * @return boolean */
 	public boolean isValidPassword(String password) {
 
 		if (password == null)
@@ -475,8 +487,8 @@ public class UserDB extends Database {
 	 * @param nowEmail
 	 * 
 	 * 
-	 * @return boolean
-	 */
+	
+	 * @return boolean */
 	public boolean isValidEmail(String nowEmail) {
 
 		if (nowEmail == null)
@@ -492,13 +504,17 @@ public class UserDB extends Database {
 	 * @param nowNickname
 	 * 
 	 * 
-	 * @return boolean
-	 */
+	
+	 * @return boolean */
 	public boolean isValidUsername(String nowNickname) {
 
 		if (nowNickname == null)
 			return false;
 
+		if (nowNickname.length() <= 3) {
+			return false;
+		}
+		
 		if (new EmailValidator().isEmailValid(nowNickname))
 			return false;
 
@@ -509,8 +525,8 @@ public class UserDB extends Database {
 	 * 
 	 * 
 	 * 
-	 * @return String
-	 */
+	
+	 * @return String */
 	public String getFirstName() {
 		return firstName;
 	}
@@ -527,8 +543,8 @@ public class UserDB extends Database {
 	 * 
 	 * 
 	 * 
-	 * @return String
-	 */
+	
+	 * @return String */
 	public String getLastName() {
 		return lastName;
 	}
@@ -545,8 +561,8 @@ public class UserDB extends Database {
 	 * 
 	 * 
 	 * 
-	 * @return String
-	 */
+	
+	 * @return String */
 	public String getPassword() {
 		return originalPassword;
 	}
@@ -564,8 +580,8 @@ public class UserDB extends Database {
 	 * 
 	 * 
 	 * 
-	 * @return String
-	 */
+	
+	 * @return String */
 	public String getEmail() {
 		return email;
 	}
@@ -582,8 +598,8 @@ public class UserDB extends Database {
 	 * 
 	 * 
 	 * 
-	 * @return String
-	 */
+	
+	 * @return String */
 	public String getNickname() {
 		return nickname;
 	}
@@ -600,8 +616,8 @@ public class UserDB extends Database {
 	 * 
 	 * 
 	 * 
-	 * @return int
-	 */
+	
+	 * @return int */
 	public int getId() {
 		return id;
 	}
@@ -618,8 +634,8 @@ public class UserDB extends Database {
 	 * 
 	 * 
 	 * 
-	 * @return int
-	 */
+	
+	 * @return int */
 	public int getLanguage() {
 		return language;
 	}
@@ -636,8 +652,8 @@ public class UserDB extends Database {
 	 * 
 	 * 
 	 * 
-	 * @return int
-	 */
+	
+	 * @return int */
 	public int getPoints() {
 		return points;
 	}
@@ -662,8 +678,8 @@ public class UserDB extends Database {
 	 * 
 	 * 
 	 * 
-	 * @return String
-	 */
+	
+	 * @return String */
 	public String getHashedPassword() {
 		return hashedPassword;
 	}
@@ -688,8 +704,8 @@ public class UserDB extends Database {
 	/**
 	 * Method getScore.
 	 * 
-	 * @return int
-	 */
+	
+	 * @return int */
 	public int getCoins() {
 
 		return coins;

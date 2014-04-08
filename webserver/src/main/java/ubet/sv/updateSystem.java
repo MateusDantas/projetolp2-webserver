@@ -9,6 +9,8 @@ import java.util.TimerTask;
 import ubet.api.Bets;
 import ubet.api.Games;
 
+/**
+ */
 public class updateSystem {
 
 	private final static String URL_JOGOS = "http://futebol.statig.com.br/campeonatos/973/";
@@ -34,6 +36,10 @@ public class updateSystem {
 		timer.schedule(timerRefreshSystem(), 0, REFRESH_PERIOD);
 	}
 
+	/**
+	 * Method timerRefreshSystem.
+	 * @return TimerTask
+	 */
 	protected static TimerTask timerRefreshSystem() {
 
 		return new TimerTask() {

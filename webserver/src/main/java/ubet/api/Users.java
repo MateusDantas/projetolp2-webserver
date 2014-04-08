@@ -7,10 +7,12 @@ import ubet.database.RoomsDB;
 import ubet.database.UserDB;
 import ubet.util.Variables;
 
+/**
+ */
 public abstract class Users {
 
 	/**
-	 * You know what Tries to create an user
+	 * Register an user into the database
 	 * 
 	 * @param firstName
 	 *            User`s first name
@@ -24,8 +26,9 @@ public abstract class Users {
 	 *            User`s password
 	 * @param language
 	 *            User`s language
-	 * @return Variables of possible outcomes
-	 * @throws SQLException
+	 * 
+	 * 
+	 * @return Variables of possible outcomes * @throws SQLException
 	 */
 	public static int createUser(String firstName, String secondName,
 			String email, String nickname, String password, int language)
@@ -42,26 +45,29 @@ public abstract class Users {
 		int result = newUser.addUser().getValue();
 		if (result != Variables.SUCCESS.getValue())
 			return result;
-		
-		List <RoomsDB> rooms = Rooms.getRoomsByUser("master");
+
+		List<RoomsDB> rooms = Rooms.getRoomsCreatedByUser("master");
 		if (rooms == null)
 			return result;
-		
+
 		for (RoomsDB room : rooms) {
-			Rooms.enterToRoom(nickname, room.getHashedPassword(), room.getRoomId());
+			Rooms.enterToRoom(nickname, "12345", room.getRoomId());
 		}
-		
+
 		return result;
 	}
 
 	/**
+	 * Authenticate user with the database
 	 * 
 	 * @param nickname
 	 *            User`s nickname
 	 * @param password
 	 *            User`s password
-	 * @return true if user`s was successfully authenticated
-	 * @throws SQLException
+	 * 
+	 * 
+	 * @return true if user`s was successfully authenticated * @throws
+	 *         SQLException
 	 */
 	public static boolean loginUser(String nickname, String password)
 			throws SQLException {
@@ -75,27 +81,28 @@ public abstract class Users {
 		return newUser.autenticatePassword(password);
 	}
 
-
 	/**
+	 * Get all user's registered in the database
 	 * 
-	 * @return
+	 * @return List<UserDB>
 	 */
 	public static List<UserDB> getAllUsers() {
-		
+
 		UserDB newUser = new UserDB();
-		
+
 		return newUser.getAllUsers();
 	}
-	
+
 	/**
-	 * Tries to change`s user`s password
+	 * Change`s user`s password
 	 * 
 	 * @param nickname
 	 *            User`s nickname
 	 * @param newPassword
 	 *            User`s new password
-	 * @return Variables of possible outcomes
-	 * @throws SQLException
+	 * 
+	 * 
+	 * @return Variables of possible outcomes * @throws SQLException
 	 */
 	public static int changePassword(String nickname, String newPassword)
 			throws SQLException {
@@ -112,11 +119,13 @@ public abstract class Users {
 	}
 
 	/**
+	 * Get user's total number of coins
 	 * 
 	 * @param nickname
 	 *            User`s nickname
-	 * @return The number of coins that the user`s has
-	 * @throws SQLException
+	 * 
+	 * 
+	 * @return The number of coins that the user`s has * @throws SQLException
 	 */
 	public static int getCoins(String nickname) throws SQLException {
 
@@ -130,11 +139,13 @@ public abstract class Users {
 	}
 
 	/**
+	 * Get user's score
 	 * 
 	 * @param nickname
 	 *            User`s nickname
-	 * @return The score of user
-	 * @throws SQLException
+	 * 
+	 * 
+	 * @return The score of user * @throws SQLException
 	 */
 	public static int getScore(String nickname) throws SQLException {
 
@@ -148,9 +159,12 @@ public abstract class Users {
 	}
 
 	/**
+	 * Get user id based on its nickname
 	 * 
 	 * @param nickname
-	 * @return
+	 * 
+	 * 
+	 * @return int
 	 * @throws SQLException
 	 */
 	public static int getUserId(String nickname) throws SQLException {
@@ -164,6 +178,15 @@ public abstract class Users {
 		return newUser.getId();
 	}
 
+	/**
+	 * Get user's nickname based on id, return empty if the id doesn't match any
+	 * user
+	 * 
+	 * @param userid
+	 *            int
+	 * @return String
+	 * @throws SQLException
+	 */
 	public static String getNickname(int userid) throws SQLException {
 
 		UserDB newUser = new UserDB();
@@ -176,10 +199,12 @@ public abstract class Users {
 	}
 
 	/**
-	 * 
+	 * Set user's number of coins
 	 * @param nickname
 	 * @param newCoins
-	 * @return
+	 * 
+	 * 
+	 * @return boolean True if successful or False otherwise
 	 * @throws SQLException
 	 */
 	protected static boolean setCoins(String nickname, int newCoins)
@@ -200,10 +225,12 @@ public abstract class Users {
 	}
 
 	/**
-	 * 
+	 * Set user's score
 	 * @param nickname
 	 * @param newScore
-	 * @return
+	 * 
+	 * 
+	 * @return boolean True if successful or False otherwise
 	 * @throws SQLException
 	 */
 	protected static boolean setScore(String nickname, int newScore)

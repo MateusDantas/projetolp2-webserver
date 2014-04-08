@@ -2,14 +2,26 @@ package ubet.util;
 
 import java.util.HashMap;
 
+/**
+ */
 public class StringTemplate {
 
 	private String templateText;
 
+	/**
+	 * Constructor for StringTemplate.
+	 * @param text String
+	 */
 	public StringTemplate(String text) {
 		this.setTemplateText(text);
 	}
 
+	/**
+	 * Method getString.
+	 * @param values HashMap<String,Object>
+	 * @return String
+	 * @throws Exception
+	 */
 	public String getString(HashMap<String, Object> values) throws Exception {
 
 		String templateResult = this.templateText;
@@ -32,10 +44,18 @@ public class StringTemplate {
 		return templateResult;
 	}
 
+	/**
+	 * Method getTemplateText.
+	 * @return String
+	 */
 	public String getTemplateText() {
 		return templateText;
 	}
 
+	/**
+	 * Method setTemplateText.
+	 * @param templateText String
+	 */
 	public void setTemplateText(String templateText) {
 		this.templateText = templateText;
 	}

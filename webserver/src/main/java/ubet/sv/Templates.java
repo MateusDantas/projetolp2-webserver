@@ -2,6 +2,8 @@ package ubet.sv;
 
 import javax.ws.rs.ext.Provider;
 
+/**
+ */
 @Provider
 public class Templates {
 

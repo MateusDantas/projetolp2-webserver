@@ -36,8 +36,8 @@ public class BetsDB extends Database {
 	 * @param roomId
 	 *            int Room`s id
 	 * @param round
-	 *            int Round (0 - Qualifying Round, 1 - Round of 16, 2 - Round of
-	 *            4, 3 - Semi Finals, 4 - Finals)
+	 *            int Round (1,2,3 - Qualifying Round, 4 - Round of 16, 5 -
+	 *            Round of 6, 6 - Semi Finals, 7 - Finals)
 	 * @param gameId
 	 *            int Game`s id
 	 * @param scoreOne
@@ -63,13 +63,14 @@ public class BetsDB extends Database {
 	 * 
 	 * @param userId
 	 *            int User`s id
-	
+	 * 
 	 * @param round
-	 *            int Round (0 - Qualifying Round, 1 - Round of 16, 2 - Round of
-	 *            4, 3 - Semi Finals, 4 - Finals)
+	 *            int Round (1,2,3 - Qualifying Round, 4 - Round of 16, 5 -
+	 *            Round of 6, 6 - Semi Finals, 7 - Finals)
 	 * @param gameId
 	 *            int Game`s id
-	 * @param betId int
+	 * @param betId
+	 *            int
 	 */
 	public BetsDB(int id, int userId, int betId, int round, int gameId) {
 		this.setId(id);
@@ -87,15 +88,18 @@ public class BetsDB extends Database {
 	 * 
 	 * @param userId
 	 *            int User`s id
-	
+	 * 
 	 * @param round
-	 *            int Round (0 - Qualifying Round, 1 - Round of 16, 2 - Round of
-	 *            4, 3 - Semi Finals, 4 - Finals)
+	 *            int Round (1,2,3 - Qualifying Round, 4 - Round of 16, 5 -
+	 *            Round of 6, 6 - Semi Finals, 7 - Finals)
 	 * @param gameId
 	 *            int Game`s id
-	 * @param betId int
-	 * @param scoreOne int
-	 * @param scoreTwo int
+	 * @param betId
+	 *            int
+	 * @param scoreOne
+	 *            int
+	 * @param scoreTwo
+	 *            int
 	 */
 	public BetsDB(int id, int userId, int betId, int round, int gameId,
 			int scoreOne, int scoreTwo) {
@@ -111,9 +115,8 @@ public class BetsDB extends Database {
 	/**
 	 * Method addBetGame. Tries to add to the database the current bet
 	 * 
-	
-	
-	 * @return Variables * @throws SQLException * @throws SQLException
+	 * @return Variables * @throws SQLException * @throws SQLException * @throws
+	 *         SQLException
 	 */
 	public Variables addBetGame() throws SQLException {
 
@@ -149,9 +152,11 @@ public class BetsDB extends Database {
 	/**
 	 * Method updateBetGame. Tries to update the current bet
 	 * 
-	
-	
-	 * @return Variables * @throws SQLException * @throws SQLException
+	 * 
+	 * 
+	 * 
+	 * @return Variables * @throws SQLException * @throws SQLException * @throws
+	 *         SQLException
 	 */
 	public Variables updateBetGame() throws SQLException {
 
@@ -186,41 +191,51 @@ public class BetsDB extends Database {
 	}
 
 	/**
+	 * Gets a list of all bets made by user, returns null if the user doesn't
+	 * exist
 	 * 
 	 * @param userId
-	 * @return
+	 * @return List<BetsDB>
 	 */
 	public List<BetsDB> getBet(int userId) {
-		
+
 		List<Object> newList = new ArrayList<Object>();
 		newList.add(userId);
-		
+
 		return getBet(GET_BY_USER, newList);
 	}
-	
+
 	/**
+	 * Get a list of all bets made by user inside room, returns null if the
+	 * provided data doesn't match the database
 	 * 
 	 * @param userId
 	 * @param roomId
-	 * @return
+	 * @return List<BetsDB>
 	 */
 	public List<BetsDB> getBet(int userId, int roomId) {
-		
+
 		List<Object> newList = new ArrayList<Object>();
 		newList.add(userId);
 		newList.add(roomId);
-		
+
 		return getBet(GET_BY_USER_BY_ROOM, newList);
 	}
-	
+
 	/**
+	 * Get a list of all bets made by user inside room in the (round, game), returns null if the
+	 * provided data doesn't match the database
+	 * @param userId
+	 *            User's ID
+	 * @param roomId
+	 *            Room's ID
+	 * @param round
+	 *            Round number
+	 * @param gameId
+	 *            Game's ID
 	 * 
-	 * @param userId User's ID
-	 * @param roomId Room's ID
-	 * @param round Round number
-	 * @param gameId Game's ID
-	
-	 * @return List of <BetsDB> of all bets made by some user */
+	 * @return List of <BetsDB> of all bets made by some user
+	 */
 	public List<BetsDB> getBet(int userId, int roomId, int round, int gameId) {
 
 		List<Object> newList = new ArrayList<Object>();
@@ -233,36 +248,39 @@ public class BetsDB extends Database {
 	}
 
 	/**
-	 * 
+	 * Get all the bets made for game
 	 * @param gameId
-	 * @return
+	 * 
+	 * @return List<BetsDB>
 	 */
 	public List<BetsDB> getBetsByGame(int gameId) {
-		
-		List <Object> newList = new ArrayList<Object>();
+
+		List<Object> newList = new ArrayList<Object>();
 		newList.add(gameId);
-		
+
 		return getBet(GET_BY_GAME, newList);
 	}
-	
+
 	/**
+	 * Get a list of all bets registered on the database
 	 * 
-	 * @return
+	 * @return List<BetsDB>
 	 */
 	public List<BetsDB> getAllBets() {
-		
-		List <Object> newList = new ArrayList<Object>();
-		
+
+		List<Object> newList = new ArrayList<Object>();
+
 		return getBet(GET_ALL_BETS, newList);
 	}
-	
+
 	/**
 	 * Set the current bet to bet's id
 	 * 
 	 * @param id
 	 *            int Id of the bet
-	
-	 * @return boolean true is successful, false otherwise */
+	 * 
+	 * @return boolean true is successful, false otherwise
+	 */
 	public boolean setBetGame(int id) {
 
 		return setBet(id);
@@ -271,8 +289,9 @@ public class BetsDB extends Database {
 	/**
 	 * Set the current bet to the current bet's id
 	 * 
-	
-	 * @return boolean true is successful, false otherwise */
+	 * 
+	 * @return boolean true is successful, false otherwise
+	 */
 	public boolean setBetGame() {
 
 		return setBet(this.id);
@@ -283,8 +302,9 @@ public class BetsDB extends Database {
 	 * 
 	 * @param id
 	 *            int id of the bet
-	
-	 * @return boolean true is successful, false otherwise */
+	 * 
+	 * @return boolean true is successful, false otherwise
+	 */
 	public boolean setBet(int id) {
 
 		List<Object> newList = new ArrayList<Object>();
@@ -295,7 +315,6 @@ public class BetsDB extends Database {
 		if (betGame == null || betGame.size() == 0)
 			return false;
 
-
 		setId(betGame.get(0).id);
 		setUserId(betGame.get(0).userId);
 		setRoomId(betGame.get(0).roomId);
@@ -303,19 +322,19 @@ public class BetsDB extends Database {
 		setGameId(betGame.get(0).gameId);
 		setScoreTeamOne(betGame.get(0).scoreTeamOne);
 		setScoreTeamTwo(betGame.get(0).scoreTeamTwo);
-		
 
 		return true;
 	}
 
 	/**
-	 * 
+	 * Return's a list of bets matching the given SQL Statement
 	 * @param pattern
 	 *            String MySQL Query Statement
 	 * @param values
 	 *            List<Object> Entries for the query statement
-	
-	 * @return List<BetsDB> List of Bets that corresponds to the Query Statement */
+	 * 
+	 * @return List<BetsDB> List of Bets that corresponds to the Query Statement
+	 */
 	public List<BetsDB> getBet(String pattern, List<Object> values) {
 
 		PreparedStatement newStatement = null;
@@ -357,8 +376,9 @@ public class BetsDB extends Database {
 	 * 
 	 * @param gameId2
 	 *            int
-	
-	 * @return boolean */
+	 * 
+	 * @return boolean
+	 */
 	private boolean isValidGame(int gameId2) {
 
 		GamesDB newGame = new GamesDB();
@@ -372,8 +392,9 @@ public class BetsDB extends Database {
 	 * 
 	 * @param round2
 	 *            int
-	
-	 * @return boolean */
+	 * 
+	 * @return boolean
+	 */
 	private boolean isValidRound(int round2) {
 
 		if (round < 0 || round > 10)
@@ -386,8 +407,9 @@ public class BetsDB extends Database {
 	 * 
 	 * @param betId2
 	 *            int
-	
-	 * @return boolean */
+	 * 
+	 * @return boolean
+	 */
 	private boolean isValidBet(int betId2) {
 
 		RoomsDB newBet = new RoomsDB();
@@ -401,9 +423,11 @@ public class BetsDB extends Database {
 	 * 
 	 * @param userId2
 	 *            int
-	
-	
-	 * @return boolean * @throws SQLException * @throws SQLException
+	 * 
+	 * 
+	 * 
+	 * @return boolean * @throws SQLException * @throws SQLException * @throws
+	 *         SQLException
 	 */
 	private boolean isValidUser(int userId2) throws SQLException {
 
@@ -416,8 +440,9 @@ public class BetsDB extends Database {
 	/**
 	 * Method getGameId.
 	 * 
-	
-	 * @return int */
+	 * 
+	 * @return int
+	 */
 	public int getGameId() {
 		return gameId;
 	}
@@ -435,8 +460,9 @@ public class BetsDB extends Database {
 	/**
 	 * Method getUserId.
 	 * 
-	
-	 * @return int */
+	 * 
+	 * @return int
+	 */
 	public int getUserId() {
 		return userId;
 	}
@@ -454,8 +480,9 @@ public class BetsDB extends Database {
 	/**
 	 * Method getRound.
 	 * 
-	
-	 * @return int */
+	 * 
+	 * @return int
+	 */
 	public int getRound() {
 		return round;
 	}
@@ -473,8 +500,9 @@ public class BetsDB extends Database {
 	/**
 	 * Method getBetId.
 	 * 
-	
-	 * @return int */
+	 * 
+	 * @return int
+	 */
 	public int getRoomId() {
 		return roomId;
 	}
@@ -492,8 +520,9 @@ public class BetsDB extends Database {
 	/**
 	 * Method getScoreTeamTwo.
 	 * 
-	
-	 * @return int */
+	 * 
+	 * @return int
+	 */
 	public int getScoreTeamTwo() {
 		return scoreTeamTwo;
 	}
@@ -511,8 +540,9 @@ public class BetsDB extends Database {
 	/**
 	 * Method getScoreTeamOne.
 	 * 
-	
-	 * @return int */
+	 * 
+	 * @return int
+	 */
 	public int getScoreTeamOne() {
 		return scoreTeamOne;
 	}
@@ -540,8 +570,9 @@ public class BetsDB extends Database {
 	/**
 	 * Method getId.
 	 * 
-	
-	 * @return int */
+	 * 
+	 * @return int
+	 */
 	public int getId() {
 		return id;
 	}

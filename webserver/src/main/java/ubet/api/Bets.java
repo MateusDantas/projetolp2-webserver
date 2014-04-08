@@ -10,6 +10,8 @@ import java.util.TimeZone;
 import ubet.database.*;
 import ubet.util.Variables;
 
+/**
+ */
 public abstract class Bets {
 
 	public final static int FIRST_TEAM = 1;
@@ -44,9 +46,9 @@ public abstract class Bets {
 	 * @param firstTeamScore
 	 * @param secondTeamScore
 	 * @param isExtraBet
-	 * @return
-	 * @throws SQLException
-	 */
+	
+	
+	 * @return Variables * @throws SQLException */
 	public static int makeBet(String username, int roomId, int round,
 			int gameId, int firstTeamScore, int secondTeamScore,
 			boolean isExtraBet) throws SQLException {
@@ -123,13 +125,14 @@ public abstract class Bets {
 	}
 
 	/**
+	 * Change user's bet
 	 * 
 	 * @param betId
 	 * @param scoreOne
 	 * @param scoreTwo
-	 * @return
-	 * @throws SQLException
-	 */
+	
+	
+	 * @return Variables * @throws SQLException */
 	public static int changeBet(int betId, int scoreOne, int scoreTwo)
 			throws SQLException {
 
@@ -163,14 +166,15 @@ public abstract class Bets {
 	}
 
 	/**
+	 * List of bets made by user in game
 	 * 
 	 * @param username
 	 * @param roomId
 	 * @param round
 	 * @param gameId
-	 * @return
-	 * @throws SQLException
-	 */
+	
+	
+	 * @return List<BetsDB> * @throws SQLException */
 	public static List<BetsDB> betsByUserByGames(String username, int roomId,
 			int round, int gameId) throws SQLException {
 
@@ -185,12 +189,13 @@ public abstract class Bets {
 	}
 
 	/**
+	 * List of bets made by user in room
 	 * 
 	 * @param username
 	 * @param roomId
-	 * @return
-	 * @throws SQLException
-	 */
+	
+	
+	 * @return List<BetsDB> * @throws SQLException */
 	public static List<BetsDB> betsByUserByRoom(String username, int roomId)
 			throws SQLException {
 
@@ -205,11 +210,12 @@ public abstract class Bets {
 	}
 
 	/**
+	 * List of all bets made by user
 	 * 
 	 * @param username
-	 * @return
-	 * @throws SQLException
-	 */
+	
+	
+	 * @return List<BetsDB> * @throws SQLException */
 	public static List<BetsDB> betsByUser(String username) throws SQLException {
 
 		int userId = Users.getUserId(username);
@@ -222,6 +228,12 @@ public abstract class Bets {
 		return newBets.getBet(userId);
 	}
 
+	/**
+	 * List of all bets in some game
+	 * 
+	 * @param gameId
+	
+	 * @return List<BetsDB> */
 	protected static List<BetsDB> getBetsByGame(int gameId) {
 
 		BetsDB newBets = new BetsDB();
@@ -229,6 +241,11 @@ public abstract class Bets {
 		return newBets.getBetsByGame(gameId);
 	}
 
+	/**
+	 * List of all bets
+	 * 
+	
+	 * @return List<BetsDB> */
 	protected static List<BetsDB> getAllBets() {
 
 		BetsDB newBets = new BetsDB();
@@ -236,6 +253,14 @@ public abstract class Bets {
 		return newBets.getAllBets();
 	}
 
+	/**
+	 * Parse round (1,2,3 = GROUP_ROUND, 4 = FINAL_16, 5 = FINAL_8, 4 =
+	 * SEMI_FINALS, 5 = FINALS)
+	 * 
+	 * @param round
+	
+	 * @return int
+	 */
 	protected static int parseRound(int round) {
 
 		if (round <= GROUP_ROUND_GAMES)
@@ -250,6 +275,12 @@ public abstract class Bets {
 		return FINALS;
 	}
 
+	/**
+	 * Get the correct multiplier for each round
+	 * @param round
+	
+	 * @return int
+	 */
 	protected static int getRoundMultiplier(int round) {
 
 		switch (parseRound(round)) {
@@ -268,6 +299,15 @@ public abstract class Bets {
 		}
 	}
 
+	/**
+	 * Calculate user`s point based on the bet he made
+	 * @param scoreOne
+	 * @param scoreTwo
+	 * @param realScoreOne
+	 * @param realScoreTwo
+	 * @param round
+	
+	 * @return The user`s pontuation */
 	protected static int calculatePoints(int scoreOne, int scoreTwo,
 			int realScoreOne, int realScoreTwo, int round) {
 
@@ -301,6 +341,10 @@ public abstract class Bets {
 		return totalPoints * getRoundMultiplier(round);
 	}
 
+	/**
+	 * Update all user`s points
+	
+	 * @throws SQLException */
 	public static void updatePoints() throws SQLException {
 
 		List<BetsDB> allBets = getAllBets();
@@ -333,7 +377,7 @@ public abstract class Bets {
 					realScoreTwo, game.getRound());
 
 			if (userId == last_user && roomId == last_room) {
-				
+
 				if (gameId == last_game) {
 					max_points = Math.max(max_points, totPoints);
 				} else {
@@ -342,17 +386,18 @@ public abstract class Bets {
 				}
 			} else {
 
-				Rooms.setPointsUserInRoom(last_user, last_room, cur_points + max_points);
+				Rooms.setPointsUserInRoom(last_user, last_room, cur_points
+						+ max_points);
 				cur_points = 0;
 				max_points = totPoints;
 			}
-			
+
 			last_user = userId;
 			last_room = roomId;
 			last_game = gameId;
-			
+
 		}
-		
+
 		Rooms.setPointsUserInRoom(last_user, last_room, cur_points + max_points);
 	}
 }

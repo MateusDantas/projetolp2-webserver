@@ -6,11 +6,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ */
 public abstract class ConnectSQL {
 
 	private static String DB_URL = "jdbc:mysql://192.241.241.32:3306/ubet";
 	private static String USERNAME = "mdantas";
-	private static String PASSWORD = "";
+	private static String PASSWORD = "cwNwCGChqVAqPRdK";
 	protected static Connection dbConnection = null;
 	
 
@@ -23,7 +25,7 @@ public abstract class ConnectSQL {
 	 * 
 	 * 
 	 * @return true if connection to server is alive, false otherwise * @throws
-	 *         SQLException * @throws SQLException * @throws SQLException
+	 *         SQLException * @throws SQLException * @throws SQLException * @throws SQLException
 	 */
 	public static boolean isConnected() throws SQLException {
 
@@ -37,12 +39,12 @@ public abstract class ConnectSQL {
 	}
 
 	/**
-	 * 
+	 * Test if the connection to the database is alive
 	 * @param query
 	 *            SQL Query Strig
 	 * 
-	 * @return true if it's possible to execute a query, false otherwise
-	 */
+	
+	 * @return true if it's possible to execute a query, false otherwise */
 	private static boolean testConnection(String query) {
 
 		Statement newStatement = null;
@@ -127,8 +129,8 @@ public abstract class ConnectSQL {
 	/**
 	 * 
 	 * 
-	 * @return Connection link of the current connection
-	 */
+	
+	 * @return Connection link of the current connection */
 	public static Connection getConnection() {
 
 		return dbConnection;

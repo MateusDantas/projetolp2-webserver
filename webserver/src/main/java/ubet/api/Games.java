@@ -18,11 +18,22 @@ import ubet.database.GamesDB;
 import ubet.util.JsonReader;
 import ubet.util.Variables;
 
+/**
+ */
 public class Games {
 
 	private static final SimpleDateFormat formatter = new SimpleDateFormat(
 			"yyyy-MM-dd HH:mm:ss");
 
+	/**
+	 * Update all game`s from the link provided
+	 * @param link String
+	 * @param rodada int
+	 * @param name String
+	 * @throws IOException
+	 * @throws ParseException
+	 * @throws SQLException
+	 */
 	public static void updateGames(String link, int rodada, String name)
 			throws IOException, ParseException, SQLException {
 
@@ -58,6 +69,17 @@ public class Games {
 	}
 
 
+	/**
+	 * Create a game given the parameters
+	 * @param firstTeamId int
+	 * @param secondTeamId int
+	 * @param scoreOne int
+	 * @param scoreTwo int
+	 * @param round int
+	 * @param date Date
+	 * @return boolean
+	 * @throws SQLException
+	 */
 	public static boolean createGame(int firstTeamId, int secondTeamId,
 			int scoreOne, int scoreTwo, int round, Date date)
 			throws SQLException {
@@ -65,12 +87,17 @@ public class Games {
 		GamesDB newGame = new GamesDB(firstTeamId, secondTeamId, scoreOne,
 				scoreTwo, round, date);
 
-		if (!newGame.setGame())
+		if (!newGame.setGame(firstTeamId, secondTeamId, round))
 			return (newGame.addGames()) == Variables.SUCCESS;
 
 		return false;
 	}
 
+	/**
+	 * Get game by its ID
+	 * @param id int
+	 * @return GamesDB
+	 */
 	public static GamesDB getGameById(int id) {
 
 		GamesDB game = new GamesDB();
@@ -79,6 +106,11 @@ public class Games {
 		return game;
 	}
 
+	/**
+	 * Get a list of games by round
+	 * @param round int
+	 * @return List<GamesDB>
+	 */
 	public static List<GamesDB> getGamesByRound(int round) {
 
 		GamesDB game = new GamesDB();

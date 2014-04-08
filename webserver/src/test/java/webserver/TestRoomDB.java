@@ -15,8 +15,14 @@ import ubet.database.UserRoomDB;
 import ubet.sv.Templates;
 import ubet.util.StringTemplate;
 
+/**
+ */
 public class TestRoomDB {
 
+	/**
+	 * Method test.
+	 * @throws SQLException
+	 */
 	@Test
 	public void test() throws SQLException {
 		

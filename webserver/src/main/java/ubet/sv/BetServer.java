@@ -15,9 +15,33 @@ import ubet.database.RoomsDB;
 import ubet.database.UserDB;
 import ubet.util.StringTemplate;
 
+/**
+ */
 @Path("/bets")
 public class BetServer {
 
+	/**
+	 * Jersey Application that receives requests to make bets from user
+	 * 
+	 * @param username
+	 *            String
+	 * @param roomId
+	 *            int
+	 * @param round
+	 *            int
+	 * @param gameId
+	 *            int
+	 * @param firstTeamScore
+	 *            int
+	 * @param secondTeamScore
+	 *            int
+	 * @param isExtraBet
+	 *            int
+	 * @param token
+	 *            String
+	 * @return Response
+	 * @throws Exception
+	 */
 	@Path("/makebet")
 	@GET
 	@Produces("text/html")
@@ -45,7 +69,23 @@ public class BetServer {
 
 		return Response.status(responseStatus).entity(output).build();
 	}
-	
+
+	/**
+	 * Method makeBet.
+	 * 
+	 * @param username
+	 *            String
+	 * @param betId
+	 *            int
+	 * @param firstTeamScore
+	 *            int
+	 * @param secondTeamScore
+	 *            int
+	 * @param token
+	 *            String
+	 * @return Response
+	 * @throws Exception
+	 */
 	@Path("/changebet")
 	@GET
 	@Produces("text/html")
@@ -71,6 +111,18 @@ public class BetServer {
 		return Response.status(responseStatus).entity(output).build();
 	}
 
+	/**
+	 * Method betsByUserByRoom.
+	 * 
+	 * @param username
+	 *            String
+	 * @param roomId
+	 *            int
+	 * @param token
+	 *            String
+	 * @return Response
+	 * @throws Exception
+	 */
 	@Path("betsbyuserbyroom")
 	@GET
 	@Produces("text/html")
@@ -114,7 +166,23 @@ public class BetServer {
 
 		return Response.status(responseStatus).entity(output).build();
 	}
-	
+
+	/**
+	 * Method betsByUserByGame.
+	 * 
+	 * @param username
+	 *            String
+	 * @param gameId
+	 *            int
+	 * @param roomId
+	 *            int
+	 * @param round
+	 *            int
+	 * @param token
+	 *            String
+	 * @return Response
+	 * @throws Exception
+	 */
 	@Path("/betsbyuserbygame")
 	@GET
 	@Produces("text/html")
@@ -129,9 +197,9 @@ public class BetServer {
 
 		String output = (new StringTemplate(
 				Templates.GET_BETS_BY_USER_BY_ROOM_TLP)).getString(values);
-	
+
 		if (AuthTokenManager.isUserAuthentic(token, username)) {
-			
+
 			AuthTokenManager.authenticateToken(token);
 			List<BetsDB> listBets = Bets.betsByUserByGames(username, roomId,
 					round, gameId);
@@ -151,12 +219,11 @@ public class BetServer {
 					nowBet.put("scoreone", scoreone);
 					nowBet.put("scoretwo", scoretwo);
 
-
 					output += ((new StringTemplate(
 							Templates.GET_BETS_BY_USER_BY_ROOM_LIST_TLP))
 							.getString(nowBet));
 				}
-				
+
 			}
 			responseStatus = Response.Status.ACCEPTED;
 		}
@@ -164,6 +231,16 @@ public class BetServer {
 		return Response.status(responseStatus).entity(output).build();
 	}
 
+	/**
+	 * Method betsByUser.
+	 * 
+	 * @param username
+	 *            String
+	 * @param token
+	 *            String
+	 * @return Response
+	 * @throws Exception
+	 */
 	@Path("/betsbyuser")
 	@GET
 	@Produces("text/html")
@@ -195,7 +272,6 @@ public class BetServer {
 					nowBet.put("gameid", gameid);
 					nowBet.put("scoreone", scoreone);
 					nowBet.put("scoretwo", scoretwo);
-
 
 					output += ((new StringTemplate(
 							Templates.GET_BETS_BY_USER_BY_ROOM_LIST_TLP))

@@ -20,7 +20,7 @@ public class Database implements DBQueries {
 	 * Automatically connects to the Database
 	 */
 	public Database() {
-		
+
 		try {
 			if (!ConnectSQL.isConnected())
 				ConnectSQL.connect();
@@ -31,12 +31,15 @@ public class Database implements DBQueries {
 	}
 
 	/**
+	 * Execute the given insert query request
 	 * 
 	 * @param query
-	 *            PreparedStatement
+	 *            PreparedStatement Inser query statement
+	 * 
 	 * 
 	 * 
 	 * @return Variables * @see
+	 *         ubet.database.DBQueries#insertQuery(PreparedStatement) * @see
 	 *         ubet.database.DBQueries#insertQuery(PreparedStatement) * @see
 	 *         ubet.database.DBQueries#insertQuery(PreparedStatement)
 	 */
@@ -49,13 +52,13 @@ public class Database implements DBQueries {
 			// TODO Auto-generated catch block
 			return Variables.SQL_ERROR;
 		}
-		
+
 		PreparedStatement newStatement = query;
 
 		try {
 
 			int affectedRows = newStatement.executeUpdate();
-			
+
 			if (affectedRows == 0)
 				return Variables.UNKNOWN_ERROR;
 			return Variables.SUCCESS;
@@ -76,12 +79,15 @@ public class Database implements DBQueries {
 	}
 
 	/**
+	 * Execute the given update query request
 	 * 
 	 * @param query
 	 *            PreparedStatement
 	 * 
 	 * 
+	 * 
 	 * @return Variables * @see
+	 *         ubet.database.DBQueries#updateQuery(PreparedStatement) * @see
 	 *         ubet.database.DBQueries#updateQuery(PreparedStatement) * @see
 	 *         ubet.database.DBQueries#updateQuery(PreparedStatement)
 	 */
@@ -91,12 +97,13 @@ public class Database implements DBQueries {
 	}
 
 	/**
-	 * Method changeQuery.
+	 * Performs a change query on the database
 	 * 
 	 * @param pattern
-	 *            String
+	 *            String The SQL Statement
 	 * @param values
-	 *            List<Object>
+	 *            List<Object> The variables on the SQL Statement
+	 * 
 	 * 
 	 * @return Variables
 	 */
@@ -120,12 +127,16 @@ public class Database implements DBQueries {
 	}
 
 	/**
+	 * Returns a list of mapping {key:value} from the requested query, null if
+	 * an exception is catched
 	 * 
 	 * @param query
 	 *            PreparedStatement
 	 * 
 	 * 
+	 * 
 	 * @return List<HashMap<String,Object>> * @see
+	 *         ubet.database.DBQueries#getQuery(PreparedStatement) * @see
 	 *         ubet.database.DBQueries#getQuery(PreparedStatement) * @see
 	 *         ubet.database.DBQueries#getQuery(PreparedStatement)
 	 */
@@ -138,7 +149,7 @@ public class Database implements DBQueries {
 			// TODO Auto-generated catch block
 			return null;
 		}
-		
+
 		PreparedStatement newStatement = query;
 		ResultSet result = null;
 		ResultSetMetaData metaData = null;
@@ -193,7 +204,7 @@ public class Database implements DBQueries {
 	 * Connect to the server
 	 */
 	public void connect() {
-		
+
 		ConnectSQL.connect();
 	}
 
@@ -206,9 +217,12 @@ public class Database implements DBQueries {
 	}
 
 	/**
+	 * Given the SQL Statement and it's variables values, return a JDBC
+	 * Statement with input already sanitized
 	 * 
 	 * @param pattern
 	 * @param values
+	 * 
 	 * 
 	 * 
 	 * @return PreparedStatement
@@ -226,7 +240,7 @@ public class Database implements DBQueries {
 
 			if (values == null)
 				return newStatement;
-			
+
 			for (int i = 0; i < values.size(); i++)
 				newStatement.setObject(i + 1, values.get(i));
 

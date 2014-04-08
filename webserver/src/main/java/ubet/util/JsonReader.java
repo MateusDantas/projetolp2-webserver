@@ -11,8 +11,16 @@ import java.nio.charset.Charset;
 
 import org.json.JSONObject;
 
+/**
+ */
 public class JsonReader {
 
+	/**
+	 * Method readAll.
+	 * @param rd Reader
+	 * @return String
+	 * @throws IOException
+	 */
 	private static String readAll(Reader rd) throws IOException {
 
 		StringBuilder stringBuilder = new StringBuilder();
@@ -23,6 +31,11 @@ public class JsonReader {
 		return stringBuilder.toString();
 	}
 
+	/**
+	 * Method fix.
+	 * @param str String
+	 * @return String
+	 */
 	private static String fix(String str) {
 		
 		String nowStr = "{" + String.valueOf('"');
@@ -36,6 +49,13 @@ public class JsonReader {
 		}
 		return nowStr;
 	}
+	/**
+	 * Method getJson.
+	 * @param url String
+	 * @return JSONObject
+	 * @throws MalformedURLException
+	 * @throws IOException
+	 */
 	public static JSONObject getJson(String url) throws MalformedURLException,
 			IOException {
 

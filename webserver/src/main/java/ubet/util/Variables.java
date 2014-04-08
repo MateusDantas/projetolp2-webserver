@@ -1,5 +1,7 @@
 package ubet.util;
 
+/**
+ */
 public enum Variables {
 
 	// OPTIONS
@@ -19,14 +21,26 @@ public enum Variables {
 			27), UNAUTHORIZED(28), LIM_EXTRA_BETS_EXCEEDED(29), INVALID_ROOM_ID(30), TIME_IS_UP(31);
 	private int value;
 
+	/**
+	 * Constructor for Variables.
+	 * @param value int
+	 */
 	private Variables(int value) {
 		this.setValue(value);
 	}
 
+	/**
+	 * Method getValue.
+	 * @return int
+	 */
 	public int getValue() {
 		return value;
 	}
 
+	/**
+	 * Method setValue.
+	 * @param value int
+	 */
 	public void setValue(int value) {
 		this.value = value;
 	}

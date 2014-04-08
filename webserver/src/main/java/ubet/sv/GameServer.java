@@ -15,10 +15,20 @@ import ubet.api.Teams;
 import ubet.database.GamesDB;
 import ubet.util.StringTemplate;
 
+/**
+ */
 @Path("/games")
 public class GameServer {
 
 	
+	/**
+	 * Method getGames.
+	 * @param username String
+	 * @param round int
+	 * @param token String
+	 * @return Response
+	 * @throws Exception
+	 */
 	@Path("/getgamesbyround")
 	@GET
 	@Produces("text/html; charset=ISO-8859-15")

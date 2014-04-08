@@ -122,8 +122,9 @@ public class RoomsDB extends Database {
 	 * 
 	 * 
 	 * 
+	
 	 * @return Variables * @throws SQLException * @throws SQLException * @throws
-	 *         SQLException
+	 *         SQLException * @throws SQLException
 	 */
 	public Variables addRoom() throws SQLException {
 
@@ -158,7 +159,8 @@ public class RoomsDB extends Database {
 	 * 
 	 * 
 	 * 
-	 * @return Variables * @throws SQLException
+	
+	 * @return Variables * @throws SQLException * @throws SQLException
 	 */
 	public Variables updateRoom() throws SQLException {
 
@@ -191,9 +193,10 @@ public class RoomsDB extends Database {
 
 	/**
 	 * 
-	 * @return
-	 * @throws SQLException
-	 */
+	
+	
+	 * @return int
+	 * @throws SQLException */
 	public int getLastInsertedId() throws SQLException {
 
 		List<RoomsDB> list = getRoomsByUser(this.adminId);
@@ -211,8 +214,9 @@ public class RoomsDB extends Database {
 	 * 
 	 * 
 	 * 
+	
 	 * @return int * @throws SQLException * @throws SQLException * @throws
-	 *         SQLException
+	 *         SQLException * @throws SQLException
 	 */
 	public int getTotalRoomsByUser(int userId) throws SQLException {
 
@@ -224,9 +228,10 @@ public class RoomsDB extends Database {
 
 	/**
 	 * 
-	 * @return
-	 * @throws SQLException
-	 */
+	
+	
+	 * @return List<RoomsDB>
+	 * @throws SQLException */
 	public List<RoomsDB> getAllRooms() throws SQLException {
 		
 		List<Object> newList = new ArrayList<Object>();
@@ -241,8 +246,9 @@ public class RoomsDB extends Database {
 	 * 
 	 * 
 	 * 
+	
 	 * @return List<BetsDB> * @throws SQLException * @throws SQLException * @throws
-	 *         SQLException
+	 *         SQLException * @throws SQLException
 	 */
 	public List<RoomsDB> getRoomsByUser(int userId) throws SQLException {
 		List<Object> newList = new ArrayList<Object>();
@@ -255,8 +261,8 @@ public class RoomsDB extends Database {
 	 * Method setRoom to get a room by id
 	 * 
 	 * 
-	 * @return boolean
-	 */
+	
+	 * @return boolean */
 	public boolean setRoom() {
 
 		List<Object> newList = new ArrayList<Object>();
@@ -288,8 +294,8 @@ public class RoomsDB extends Database {
 	 * @param values
 	 *            List<Object>
 	 * 
-	 * @return List<RoomsDB>
-	 */
+	
+	 * @return List<RoomsDB> */
 	public List<RoomsDB> getRooms(String pattern, List<Object> values) {
 
 		PreparedStatement newStatement = null;
@@ -331,8 +337,8 @@ public class RoomsDB extends Database {
 	 *            A password to be hashed
 	 * 
 	 * 
-	 * @return The password's hash
-	 */
+	
+	 * @return The password's hash */
 	public String hashPassword(String nowPassword) {
 
 		String originalPassword = nowPassword;
@@ -350,8 +356,8 @@ public class RoomsDB extends Database {
 	 *            Password already hashed to be compared to textPassword
 	 * 
 	 * 
-	 * @return True if they're the same, False otherwise
-	 */
+	
+	 * @return True if they're the same, False otherwise */
 	public boolean autenticatePassword(String textPassword,
 			String hashedPassword) {
 
@@ -365,8 +371,8 @@ public class RoomsDB extends Database {
 	 *            Password in Plain Text to be compared
 	 * 
 	 * 
-	 * @return True if textPassword is the same as this.currentPassword
-	 */
+	
+	 * @return True if textPassword is the same as this.currentPassword */
 	public boolean autenticatePassword(String textPassword) {
 
 		return autenticatePassword(textPassword, this.hashedPassword);
@@ -380,8 +386,8 @@ public class RoomsDB extends Database {
 	 * @param curAdminId
 	 *            int
 	 * 
-	 * @return boolean
-	 */
+	
+	 * @return boolean */
 	private boolean isValidPriceRoom(int curPriceRoom, int curAdminId) {
 
 		if (this.adminId == Variables.GENERAL_ADMIN.getValue())
@@ -399,8 +405,9 @@ public class RoomsDB extends Database {
 	 * 
 	 * 
 	 * 
+	
 	 * @return boolean * @throws SQLException * @throws SQLException * @throws
-	 *         SQLException
+	 *         SQLException * @throws SQLException
 	 */
 	private boolean isValidAdminId(int curAdminId) throws SQLException {
 
@@ -418,8 +425,8 @@ public class RoomsDB extends Database {
 	 * @param curRoomName
 	 *            String
 	 * 
-	 * @return boolean
-	 */
+	
+	 * @return boolean */
 	private boolean isValidRoomName(String curRoomName) {
 
 		if (curRoomName.length() > MIN_ROOM_NAME_LENGTH
@@ -432,8 +439,8 @@ public class RoomsDB extends Database {
 	 * 
 	 * 
 	 * 
-	 * @return int
-	 */
+	
+	 * @return int */
 	public int getRoomId() {
 		return roomId;
 	}
@@ -450,8 +457,8 @@ public class RoomsDB extends Database {
 	 * 
 	 * 
 	 * 
-	 * @return int
-	 */
+	
+	 * @return int */
 	public int getPriceExtra() {
 		return priceExtra;
 	}
@@ -468,8 +475,8 @@ public class RoomsDB extends Database {
 	 * Method getLimExtra.
 	 * 
 	 * 
-	 * @return int
-	 */
+	
+	 * @return int */
 	public int getLimExtra() {
 		return limExtra;
 	}
@@ -488,8 +495,8 @@ public class RoomsDB extends Database {
 	 * Method getPriceRoom.
 	 * 
 	 * 
-	 * @return int
-	 */
+	
+	 * @return int */
 	public int getPriceRoom() {
 		return priceRoom;
 	}
@@ -508,8 +515,8 @@ public class RoomsDB extends Database {
 	 * Method getAdminId.
 	 * 
 	 * 
-	 * @return int
-	 */
+	
+	 * @return int */
 	public int getAdminId() {
 		return adminId;
 	}
@@ -528,8 +535,8 @@ public class RoomsDB extends Database {
 	 * Method getRoomName.
 	 * 
 	 * 
-	 * @return String
-	 */
+	
+	 * @return String */
 	public String getRoomName() {
 		return roomName;
 	}
@@ -548,8 +555,8 @@ public class RoomsDB extends Database {
 	 * 
 	 * 
 	 * 
-	 * @return String
-	 */
+	
+	 * @return String */
 	public String getPassword() {
 		return password;
 	}
@@ -567,8 +574,8 @@ public class RoomsDB extends Database {
 	 * 
 	 * 
 	 * 
-	 * @return String
-	 */
+	
+	 * @return String */
 	public String getHashedPassword() {
 		return hashedPassword;
 	}

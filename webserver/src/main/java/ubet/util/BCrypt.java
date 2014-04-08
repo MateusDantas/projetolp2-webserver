@@ -380,9 +380,9 @@ public class BCrypt {
 	 *
 	 * @param d	the byte array to encode
 	 * @param len	the number of bytes to encode
-	 * @return	base64-encoded string
-	 * @exception IllegalArgumentException if the length is invalid
-	 */
+	
+	
+	 * @return	base64-encoded string * @exception IllegalArgumentException if the length is invalid */
 	private static String encode_base64(byte d[], int len)
 		throws IllegalArgumentException {
 		int off = 0;
@@ -420,8 +420,8 @@ public class BCrypt {
 	 * Look up the 3 bits base64-encoded by the specified character,
 	 * range-checking againt conversion table
 	 * @param x	the base64-encoded value
-	 * @return	the decoded value of x
-	 */
+	
+	 * @return	the decoded value of x */
 	private static byte char64(char x) {
 		if ((int)x < 0 || (int)x > index_64.length)
 			return -1;
@@ -434,9 +434,9 @@ public class BCrypt {
 	 * the standard MIME-base64 encoding.
 	 * @param s	the string to decode
 	 * @param maxolen	the maximum number of bytes to decode
-	 * @return	an array containing the decoded bytes
-	 * @throws IllegalArgumentException if maxolen is invalid
-	 */
+	
+	
+	 * @return	an array containing the decoded bytes * @throws IllegalArgumentException if maxolen is invalid */
 	private static byte[] decode_base64(String s, int maxolen)
 		throws IllegalArgumentException {
 		StringBuffer rs = new StringBuffer();
@@ -512,8 +512,8 @@ public class BCrypt {
 	 * @param data	the string to extract the data from
 	 * @param offp	a "pointer" (as a one-entry array) to the
 	 * current offset into data
-	 * @return	the next word of material from data
-	 */
+	
+	 * @return	the next word of material from data */
 	private static int streamtoword(byte data[], int offp[]) {
 		int i;
 		int word = 0;
@@ -602,8 +602,8 @@ public class BCrypt {
 	 * @param salt	the binary salt to hash with the password
 	 * @param log_rounds	the binary logarithm of the number
 	 * of rounds of hashing to apply
-	 * @return	an array containing the binary hashed password
-	 */
+	
+	 * @return	an array containing the binary hashed password */
 	private byte[] crypt_raw(byte password[], byte salt[], int log_rounds) {
 		int rounds, i, j;
 		int cdata[] = (int[])bf_crypt_ciphertext.clone();
@@ -643,8 +643,8 @@ public class BCrypt {
 	 * @param password	the password to hash
 	 * @param salt	the salt to hash with (perhaps generated
 	 * using BCrypt.gensalt)
-	 * @return	the hashed password
-	 */
+	
+	 * @return	the hashed password */
 	public static String hashpw(String password, String salt) {
 		BCrypt B;
 		String real_salt;
@@ -701,8 +701,8 @@ public class BCrypt {
 	 * hashing to apply - the work factor therefore increases as
 	 * 2**log_rounds.
 	 * @param random		an instance of SecureRandom to use
-	 * @return	an encoded salt value
-	 */
+	
+	 * @return	an encoded salt value */
 	public static String gensalt(int log_rounds, SecureRandom random) {
 		StringBuffer rs = new StringBuffer();
 		byte rnd[] = new byte[BCRYPT_SALT_LEN];
@@ -723,8 +723,8 @@ public class BCrypt {
 	 * @param log_rounds	the log2 of the number of rounds of
 	 * hashing to apply - the work factor therefore increases as
 	 * 2**log_rounds.
-	 * @return	an encoded salt value
-	 */
+	
+	 * @return	an encoded salt value */
 	public static String gensalt(int log_rounds) {
 		return gensalt(log_rounds, new SecureRandom());
 	}
@@ -733,8 +733,8 @@ public class BCrypt {
 	 * Generate a salt for use with the BCrypt.hashpw() method,
 	 * selecting a reasonable default for the number of hashing
 	 * rounds to apply
-	 * @return	an encoded salt value
-	 */
+	
+	 * @return	an encoded salt value */
 	public static String gensalt() {
 		return gensalt(GENSALT_DEFAULT_LOG2_ROUNDS);
 	}
@@ -744,8 +744,8 @@ public class BCrypt {
 	 * one
 	 * @param plaintext	the plaintext password to verify
 	 * @param hashed	the previously-hashed password
-	 * @return	true if the passwords match, false otherwise
-	 */
+	
+	 * @return	true if the passwords match, false otherwise */
 	public static boolean checkpw(String plaintext, String hashed) {
 		return (hashed.compareTo(hashpw(plaintext, hashed)) == 0);
 	}

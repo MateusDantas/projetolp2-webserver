@@ -36,8 +36,7 @@ public class GamesDB extends Database {
 	 * 
 	 * @param id
 	 *            int
-	 * @param link
-	 *            String
+	
 	 * @param firstTeam
 	 *            int
 	 * @param secondTeam
@@ -59,7 +58,7 @@ public class GamesDB extends Database {
 
 	/**
 	 * 
-	 * @param link
+	
 	 * @param firstTeam
 	 * @param secondTeam
 	 * @param round
@@ -75,6 +74,15 @@ public class GamesDB extends Database {
 		setDate(date);
 	}
 
+	/**
+	 * Constructor for GamesDB.
+	 * @param firstTeam int
+	 * @param secondTeam int
+	 * @param scoreOne int
+	 * @param scoreTwo int
+	 * @param round int
+	 * @param date Date
+	 */
 	public GamesDB(int firstTeam, int secondTeam, int scoreOne, int scoreTwo,
 			int round, Date date) {
 		setScoreOne(scoreOne);
@@ -85,6 +93,16 @@ public class GamesDB extends Database {
 		setDate(date);
 	}
 
+	/**
+	 * Constructor for GamesDB.
+	 * @param id int
+	 * @param firstTeam int
+	 * @param secondTeam int
+	 * @param scoreOne int
+	 * @param scoreTwo int
+	 * @param round int
+	 * @param date Date
+	 */
 	public GamesDB(int id, int firstTeam, int secondTeam, int scoreOne,
 			int scoreTwo, int round, Date date) {
 		setId(id);
@@ -100,7 +118,8 @@ public class GamesDB extends Database {
 	 * Method addGames.
 	 * 
 	 * 
-	 * @return Variables * @throws SQLException * @throws SQLException
+	
+	 * @return Variables * @throws SQLException * @throws SQLException * @throws SQLException
 	 */
 	public Variables addGames() throws SQLException {
 
@@ -125,7 +144,8 @@ public class GamesDB extends Database {
 	 * Method updatePlayer.
 	 * 
 	 * 
-	 * @return Variables * @throws SQLException * @throws SQLException
+	
+	 * @return Variables * @throws SQLException * @throws SQLException * @throws SQLException
 	 */
 	public Variables updateGame() throws SQLException {
 
@@ -155,8 +175,9 @@ public class GamesDB extends Database {
 	 * @param secondTeam
 	 *            int
 	 * 
-	 * @return boolean
-	 */
+	
+	 * @param round int
+	 * @return boolean */
 	public boolean setGame(int firstTeam, int secondTeam, int round) {
 
 		List<Object> newList = new ArrayList<Object>();
@@ -183,8 +204,8 @@ public class GamesDB extends Database {
 	/**
 	 * Method setGame.
 	 * 
-	 * @return boolean
-	 */
+	
+	 * @return boolean */
 	public boolean setGame() {
 
 		return setGame(this.id);
@@ -196,8 +217,8 @@ public class GamesDB extends Database {
 	 * @param gameId
 	 *            int
 	 * 
-	 * @return boolean
-	 */
+	
+	 * @return boolean */
 	public boolean setGame(int gameId) {
 
 		List<Object> newList = new ArrayList<Object>();
@@ -222,7 +243,8 @@ public class GamesDB extends Database {
 	/**
 	 * 
 	 * @param round
-	 * @return
+	
+	 * @return List<GamesDB>
 	 */
 	public List<GamesDB> getGamesByRound(int round) {
 
@@ -240,8 +262,8 @@ public class GamesDB extends Database {
 	 * @param values
 	 *            List<Object>
 	 * 
-	 * @return List<GamesDB>
-	 */
+	
+	 * @return List<GamesDB> */
 	public List<GamesDB> getGame(String pattern, List<Object> values) {
 
 		PreparedStatement newStatement = null;
@@ -280,8 +302,8 @@ public class GamesDB extends Database {
 	/**
 	 * Method getId.
 	 * 
-	 * @return int
-	 */
+	
+	 * @return int */
 	public int getId() {
 		return id;
 	}
@@ -299,8 +321,8 @@ public class GamesDB extends Database {
 	/**
 	 * Method getLink.
 	 * 
-	 * @return String
-	 */
+	
+	 * @return String */
 	public String getLink() {
 		return link;
 	}
@@ -318,8 +340,8 @@ public class GamesDB extends Database {
 	/**
 	 * Method getRound.
 	 * 
-	 * @return int
-	 */
+	
+	 * @return int */
 	public int getRound() {
 		return round;
 	}
@@ -337,8 +359,8 @@ public class GamesDB extends Database {
 	/**
 	 * Method getSecondTeam.
 	 * 
-	 * @return int
-	 */
+	
+	 * @return int */
 	public int getSecondTeam() {
 		return secondTeam;
 	}
@@ -356,8 +378,8 @@ public class GamesDB extends Database {
 	/**
 	 * Method getFirstTeam.
 	 * 
-	 * @return int
-	 */
+	
+	 * @return int */
 	public int getFirstTeam() {
 		return firstTeam;
 	}
@@ -375,8 +397,8 @@ public class GamesDB extends Database {
 	/**
 	 * Method getDate.
 	 * 
-	 * @return Date
-	 */
+	
+	 * @return Date */
 	public Date getDate() {
 		return date;
 	}
@@ -391,18 +413,34 @@ public class GamesDB extends Database {
 		this.date = date;
 	}
 
+	/**
+	 * Method getScoreTwo.
+	 * @return int
+	 */
 	public int getScoreTwo() {
 		return scoreTwo;
 	}
 
+	/**
+	 * Method setScoreTwo.
+	 * @param scoreTwo int
+	 */
 	public void setScoreTwo(int scoreTwo) {
 		this.scoreTwo = scoreTwo;
 	}
 
+	/**
+	 * Method getScoreOne.
+	 * @return int
+	 */
 	public int getScoreOne() {
 		return scoreOne;
 	}
 
+	/**
+	 * Method setScoreOne.
+	 * @param scoreOne int
+	 */
 	public void setScoreOne(int scoreOne) {
 		this.scoreOne = scoreOne;
 	}

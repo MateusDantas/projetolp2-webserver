@@ -1,0 +1,642 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="CodePro Server">
+<title>Dependency analysis of webserver at 4/8/14 3:52 AM</title>
+<style type=text/css>
+	body {font: 70% verdana,arial,helvetica; color: #000000}
+	p  {margin-top:  3px; line-height: 1.5em}
+	h1 {margin-top:  0px; margin-bottom: 6px; font: bold 175% verdana,arial,helvetica}
+	h2 {margin-top: 12px; margin-bottom: 6px; font: bold 150% verdana,arial,helvetica}
+	h3 {margin-top: 12px; margin-bottom: 6px; font: bold 125% verdana,arial,helvetica}
+	h4 {margin-top: 12px; margin-bottom: 6px; font: bold 125% verdana,arial,helvetica}
+	table tr th {font-size: 75%}
+	table tr td {font-size: 75%}
+	tr.navigation {font-size: 60%}
+	table.metrics tr th {font-size: 70%}
+	table.metrics tr td {font-size: 60%}
+	table.details tr th {background: #a6d0e0; font-size: 70%; font-weight: bold; text-align: left}
+	table.details tr td {background: #eeeeee; font-size: 60%; text-align: top; vertical-align: top}
+</style>
+</head>
+
+<body alink="black" link="black" vlink="black">
+
+<h1 align="center">CodePro Dependency Analysis</h1>
+<h2 align="center">of webserver
+<br>at 4/8/14 3:52 AM</h2>
+<p align=right>Powered by
+	CodePro Server and
+	<a href="http://www.eclipse.org">Eclipse</a>
+</p>
+
+<hr size="2">
+<table width="100%" border="0"><tr>
+<td><a name="projectSection"><h2>Project Analysis</a></h2></td>
+<td class=navigation align="right">[<a href="#projectSection">projects</a>] [<a href="#packageSection">packages</a>] [<a href="#explanationSection">explanations</a>]
+</td></tr></table>
+<h3>Project Summary</h3>
+<blockquote>
+<table class=details width="100%" border="0"><colgroup span="1" width="20%"><colgroup span="8" width="10%"></colgroup><thead><tr>
+<th>Project</th>
+<th>Total Classes</th>
+<th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Afferent Coupling</th>
+<th>Efferent Coupling</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr></thead><tbody>
+<tr><td>
+<a href="#project-webserver">webserver</a>
+</td><td align="right">
+32
+</td><td align="right">
+5
+</td><td align="right">
+27
+</td><td align="right">
+0
+</td><td align="right">
+31
+</td><td align="right">
+0.16
+</td><td align="right">
+1.0
+</td><td align="right">
+0.16
+</td></tr>
+</tbody></table>
+</blockquote>
+<h3>Project Details</h3>
+<blockquote>
+<a name="project-webserver"><h4>webserver</h4></a>
+<table class=metrics width="100%" border="0"><colgroup span="5" width="20%"></colgroup><tbody><tr>
+<td>Afferent Couplings: 0</td>
+<td>Efferent Couplings: 31</td>
+<td>Abstractness: 0.16</td>
+<td>Instability: 1.0</td>
+<td>Distance: 0.16</td>
+</tr></tbody></table>
+<table class=details width="100%" border="0"><colgroup span="4" width="25%"></colgroup><thead><tr>
+<th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Referencing Projects</th>
+<th>Referenced Projects</th>
+</tr></thead><tbody><tr>
+<td>
+<a href="#type-ubet.api.Bets">ubet.api.Bets</a>
+<br><a href="#type-ubet.api.Rooms">ubet.api.Rooms</a>
+<br><a href="#type-ubet.api.Users">ubet.api.Users</a>
+<br><a href="#type-ubet.database.ConnectSQL">ubet.database.ConnectSQL</a>
+<br><a href="#type-ubet.database.DBQueries">ubet.database.DBQueries</a>
+</td><td>
+<a href="#type-ubet.api.Games">ubet.api.Games</a>
+<br><a href="#type-ubet.api.Teams">ubet.api.Teams</a>
+<br><a href="#type-ubet.auth.AuthToken">ubet.auth.AuthToken</a>
+<br><a href="#type-ubet.auth.RandomGenerator">ubet.auth.RandomGenerator</a>
+<br><a href="#type-ubet.database.BetsDB">ubet.database.BetsDB</a>
+<br><a href="#type-ubet.database.Database">ubet.database.Database</a>
+<br><a href="#type-ubet.database.GamesDB">ubet.database.GamesDB</a>
+<br><a href="#type-ubet.database.RoomsDB">ubet.database.RoomsDB</a>
+<br><a href="#type-ubet.database.TeamsDB">ubet.database.TeamsDB</a>
+<br><a href="#type-ubet.database.UserDB">ubet.database.UserDB</a>
+<br><a href="#type-ubet.database.UserRoomDB">ubet.database.UserRoomDB</a>
+<br><a href="#type-ubet.heroku.Main">ubet.heroku.Main</a>
+<br><a href="#type-ubet.sv.AuthTokenManager">ubet.sv.AuthTokenManager</a>
+<br><a href="#type-ubet.sv.BetServer">ubet.sv.BetServer</a>
+<br><a href="#type-ubet.sv.GameServer">ubet.sv.GameServer</a>
+<br><a href="#type-ubet.sv.RandomToken">ubet.sv.RandomToken</a>
+<br><a href="#type-ubet.sv.RoomServer">ubet.sv.RoomServer</a>
+<br><a href="#type-ubet.sv.Templates">ubet.sv.Templates</a>
+<br><a href="#type-ubet.sv.UserServer">ubet.sv.UserServer</a>
+<br><a href="#type-ubet.sv.updateSystem">ubet.sv.updateSystem</a>
+<br><a href="#type-ubet.util.BCrypt">ubet.util.BCrypt</a>
+<br><a href="#type-ubet.util.EmailValidator">ubet.util.EmailValidator</a>
+<br><a href="#type-ubet.util.JsonReader">ubet.util.JsonReader</a>
+<br><a href="#type-ubet.util.StringTemplate">ubet.util.StringTemplate</a>
+<br><a href="#type-ubet.util.Variables">ubet.util.Variables</a>
+<br><a href="#type-webserver.TestBetServer">webserver.TestBetServer</a>
+<br><a href="#type-webserver.TestRoomDB">webserver.TestRoomDB</a>
+</td><td>
+<i>None</i>
+</td><td>
+javax.ws.rs-api-2.0.jar
+<br>
+jetty-server-9.0.6.v20130930.jar
+<br>
+jetty-webapp-9.0.6.v20130930.jar
+<br>
+json-20140107.jar
+<br>
+junit-4.11.jar
+<br>
+rt.jar
+
+</td></tr></tbody></table>
+</blockquote>
+<table width="100%" border="0"><tr>
+<td><a name="packageSection"><h2>Package Analysis</a></h2></td>
+<td class=navigation align="right">[<a href="#projectSection">projects</a>] [<a href="#packageSection">packages</a>] [<a href="#explanationSection">explanations</a>]
+</td></tr></table>
+<h3>Package Summary</h3>
+<blockquote>
+<table class=details width="100%" border="0"><colgroup span="1" width="20%"><colgroup span="8" width="10%"></colgroup><thead><tr>
+<th>Package</th>
+<th>Total Classes</th>
+<th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Afferent Coupling</th>
+<th>Efferent Coupling</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr></thead><tbody>
+<tr><td>
+<a href="#package-ubet.api">ubet.api</a>
+</td><td align="right">
+5
+</td><td align="right">
+3
+</td><td align="right">
+2
+</td><td align="right">
+2
+</td><td align="right">
+5
+</td><td align="right">
+0.6
+</td><td align="right">
+0.71
+</td><td align="right">
+0.31
+</td></tr>
+<tr><td>
+<a href="#package-ubet.auth">ubet.auth</a>
+</td><td align="right">
+2
+</td><td align="right">
+0
+</td><td align="right">
+2
+</td><td align="right">
+1
+</td><td align="right">
+2
+</td><td align="right">
+0.0
+</td><td align="right">
+0.67
+</td><td align="right">
+-0.33
+</td></tr>
+<tr><td>
+<a href="#package-ubet.database">ubet.database</a>
+</td><td align="right">
+9
+</td><td align="right">
+2
+</td><td align="right">
+7
+</td><td align="right">
+4
+</td><td align="right">
+9
+</td><td align="right">
+0.22
+</td><td align="right">
+0.69
+</td><td align="right">
+-0.09
+</td></tr>
+<tr><td>
+<a href="#package-ubet.heroku">ubet.heroku</a>
+</td><td align="right">
+1
+</td><td align="right">
+0
+</td><td align="right">
+1
+</td><td align="right">
+0
+</td><td align="right">
+1
+</td><td align="right">
+0.0
+</td><td align="right">
+1.0
+</td><td align="right">
+0.0
+</td></tr>
+<tr><td>
+<a href="#package-ubet.sv">ubet.sv</a>
+</td><td align="right">
+8
+</td><td align="right">
+0
+</td><td align="right">
+8
+</td><td align="right">
+1
+</td><td align="right">
+8
+</td><td align="right">
+0.0
+</td><td align="right">
+0.89
+</td><td align="right">
+-0.11
+</td></tr>
+<tr><td>
+<a href="#package-ubet.util">ubet.util</a>
+</td><td align="right">
+5
+</td><td align="right">
+0
+</td><td align="right">
+5
+</td><td align="right">
+4
+</td><td align="right">
+4
+</td><td align="right">
+0.0
+</td><td align="right">
+0.5
+</td><td align="right">
+-0.5
+</td></tr>
+<tr><td>
+<a href="#package-webserver">webserver</a>
+</td><td align="right">
+2
+</td><td align="right">
+0
+</td><td align="right">
+2
+</td><td align="right">
+0
+</td><td align="right">
+2
+</td><td align="right">
+0.0
+</td><td align="right">
+1.0
+</td><td align="right">
+0.0
+</td></tr>
+</tbody></table>
+</blockquote>
+<h3>Package Details</h3>
+<blockquote>
+<a name="package-ubet.api"><h4>ubet.api</h4></a>
+<table class=metrics width="100%" border="0"><colgroup span="5" width="20%"></colgroup><tbody><tr>
+<td>Afferent Couplings: 2</td>
+<td>Efferent Couplings: 5</td>
+<td>Abstractness: 0.6</td>
+<td>Instability: 0.71</td>
+<td>Distance: 0.31</td>
+</tr></tbody></table>
+<table class=details width="100%" border="0"><colgroup span="4" width="25%"></colgroup><thead><tr>
+<th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Referencing Packages</th>
+<th>Referenced Packages</th>
+</tr></thead><tbody><tr>
+<td>
+<a href="#type-ubet.api.Bets">ubet.api.Bets</a>
+<br><a href="#type-ubet.api.Rooms">ubet.api.Rooms</a>
+<br><a href="#type-ubet.api.Users">ubet.api.Users</a>
+</td><td>
+<a href="#type-ubet.api.Games">ubet.api.Games</a>
+<br><a href="#type-ubet.api.Teams">ubet.api.Teams</a>
+</td><td>
+<a href="#package-ubet.sv">ubet.sv</a>
+<br>
+<a href="#package-webserver">webserver</a>
+
+</td><td>
+java.io
+<br>
+java.lang
+<br>
+java.sql
+<br>
+java.text
+<br>
+java.util
+<br>
+org.json
+<br>
+<a href="#package-ubet.database">ubet.database</a>
+<br>
+<a href="#package-ubet.util">ubet.util</a>
+
+</td></tr></tbody></table>
+<a name="package-ubet.auth"><h4>ubet.auth</h4></a>
+<table class=metrics width="100%" border="0"><colgroup span="5" width="20%"></colgroup><tbody><tr>
+<td>Afferent Couplings: 1</td>
+<td>Efferent Couplings: 2</td>
+<td>Abstractness: 0.0</td>
+<td>Instability: 0.67</td>
+<td>Distance: -0.33</td>
+</tr></tbody></table>
+<table class=details width="100%" border="0"><colgroup span="4" width="25%"></colgroup><thead><tr>
+<th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Referencing Packages</th>
+<th>Referenced Packages</th>
+</tr></thead><tbody><tr>
+<td>
+</td><td>
+<a href="#type-ubet.auth.AuthToken">ubet.auth.AuthToken</a>
+<br><a href="#type-ubet.auth.RandomGenerator">ubet.auth.RandomGenerator</a>
+</td><td>
+<a href="#package-ubet.sv">ubet.sv</a>
+
+</td><td>
+java.lang
+<br>
+java.util
+
+</td></tr></tbody></table>
+<a name="package-ubet.database"><h4>ubet.database</h4></a>
+<table class=metrics width="100%" border="0"><colgroup span="5" width="20%"></colgroup><tbody><tr>
+<td>Afferent Couplings: 4</td>
+<td>Efferent Couplings: 9</td>
+<td>Abstractness: 0.22</td>
+<td>Instability: 0.69</td>
+<td>Distance: -0.09</td>
+</tr></tbody></table>
+<table class=details width="100%" border="0"><colgroup span="4" width="25%"></colgroup><thead><tr>
+<th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Referencing Packages</th>
+<th>Referenced Packages</th>
+</tr></thead><tbody><tr>
+<td>
+<a href="#type-ubet.database.ConnectSQL">ubet.database.ConnectSQL</a>
+<br><a href="#type-ubet.database.DBQueries">ubet.database.DBQueries</a>
+</td><td>
+<a href="#type-ubet.database.BetsDB">ubet.database.BetsDB</a>
+<br><a href="#type-ubet.database.Database">ubet.database.Database</a>
+<br><a href="#type-ubet.database.GamesDB">ubet.database.GamesDB</a>
+<br><a href="#type-ubet.database.RoomsDB">ubet.database.RoomsDB</a>
+<br><a href="#type-ubet.database.TeamsDB">ubet.database.TeamsDB</a>
+<br><a href="#type-ubet.database.UserDB">ubet.database.UserDB</a>
+<br><a href="#type-ubet.database.UserRoomDB">ubet.database.UserRoomDB</a>
+</td><td>
+<a href="#package-ubet.api">ubet.api</a>
+<br>
+<a href="#package-ubet.heroku">ubet.heroku</a>
+<br>
+<a href="#package-ubet.sv">ubet.sv</a>
+<br>
+<a href="#package-webserver">webserver</a>
+
+</td><td>
+java.lang
+<br>
+java.sql
+<br>
+java.util
+<br>
+<a href="#package-ubet.util">ubet.util</a>
+
+</td></tr></tbody></table>
+<a name="package-ubet.heroku"><h4>ubet.heroku</h4></a>
+<table class=metrics width="100%" border="0"><colgroup span="5" width="20%"></colgroup><tbody><tr>
+<td>Afferent Couplings: 0</td>
+<td>Efferent Couplings: 1</td>
+<td>Abstractness: 0.0</td>
+<td>Instability: 1.0</td>
+<td>Distance: 0.0</td>
+</tr></tbody></table>
+<table class=details width="100%" border="0"><colgroup span="4" width="25%"></colgroup><thead><tr>
+<th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Referencing Packages</th>
+<th>Referenced Packages</th>
+</tr></thead><tbody><tr>
+<td>
+</td><td>
+<a href="#type-ubet.heroku.Main">ubet.heroku.Main</a>
+</td><td>
+<i>None</i>
+</td><td>
+java.lang
+<br>
+org.eclipse.jetty.server
+<br>
+org.eclipse.jetty.webapp
+<br>
+<a href="#package-ubet.database">ubet.database</a>
+<br>
+<a href="#package-ubet.sv">ubet.sv</a>
+
+</td></tr></tbody></table>
+<a name="package-ubet.sv"><h4>ubet.sv</h4></a>
+<table class=metrics width="100%" border="0"><colgroup span="5" width="20%"></colgroup><tbody><tr>
+<td>Afferent Couplings: 1</td>
+<td>Efferent Couplings: 8</td>
+<td>Abstractness: 0.0</td>
+<td>Instability: 0.89</td>
+<td>Distance: -0.11</td>
+</tr></tbody></table>
+<table class=details width="100%" border="0"><colgroup span="4" width="25%"></colgroup><thead><tr>
+<th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Referencing Packages</th>
+<th>Referenced Packages</th>
+</tr></thead><tbody><tr>
+<td>
+</td><td>
+<a href="#type-ubet.sv.AuthTokenManager">ubet.sv.AuthTokenManager</a>
+<br><a href="#type-ubet.sv.BetServer">ubet.sv.BetServer</a>
+<br><a href="#type-ubet.sv.GameServer">ubet.sv.GameServer</a>
+<br><a href="#type-ubet.sv.RandomToken">ubet.sv.RandomToken</a>
+<br><a href="#type-ubet.sv.RoomServer">ubet.sv.RoomServer</a>
+<br><a href="#type-ubet.sv.Templates">ubet.sv.Templates</a>
+<br><a href="#type-ubet.sv.UserServer">ubet.sv.UserServer</a>
+<br><a href="#type-ubet.sv.updateSystem">ubet.sv.updateSystem</a>
+</td><td>
+<a href="#package-ubet.heroku">ubet.heroku</a>
+
+</td><td>
+java.io
+<br>
+java.lang
+<br>
+java.sql
+<br>
+java.text
+<br>
+java.util
+<br>
+javax.ws.rs
+<br>
+javax.ws.rs.core
+<br>
+javax.ws.rs.ext
+<br>
+<a href="#package-ubet.api">ubet.api</a>
+<br>
+<a href="#package-ubet.auth">ubet.auth</a>
+<br>
+<a href="#package-ubet.database">ubet.database</a>
+<br>
+<a href="#package-ubet.util">ubet.util</a>
+
+</td></tr></tbody></table>
+<a name="package-ubet.util"><h4>ubet.util</h4></a>
+<table class=metrics width="100%" border="0"><colgroup span="5" width="20%"></colgroup><tbody><tr>
+<td>Afferent Couplings: 4</td>
+<td>Efferent Couplings: 4</td>
+<td>Abstractness: 0.0</td>
+<td>Instability: 0.5</td>
+<td>Distance: -0.5</td>
+</tr></tbody></table>
+<table class=details width="100%" border="0"><colgroup span="4" width="25%"></colgroup><thead><tr>
+<th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Referencing Packages</th>
+<th>Referenced Packages</th>
+</tr></thead><tbody><tr>
+<td>
+</td><td>
+<a href="#type-ubet.util.BCrypt">ubet.util.BCrypt</a>
+<br><a href="#type-ubet.util.EmailValidator">ubet.util.EmailValidator</a>
+<br><a href="#type-ubet.util.JsonReader">ubet.util.JsonReader</a>
+<br><a href="#type-ubet.util.StringTemplate">ubet.util.StringTemplate</a>
+<br><a href="#type-ubet.util.Variables">ubet.util.Variables</a>
+</td><td>
+<a href="#package-ubet.api">ubet.api</a>
+<br>
+<a href="#package-ubet.database">ubet.database</a>
+<br>
+<a href="#package-ubet.sv">ubet.sv</a>
+<br>
+<a href="#package-webserver">webserver</a>
+
+</td><td>
+java.io
+<br>
+java.lang
+<br>
+java.net
+<br>
+java.security
+<br>
+java.util.regex
+<br>
+org.json
+
+</td></tr></tbody></table>
+<a name="package-webserver"><h4>webserver</h4></a>
+<table class=metrics width="100%" border="0"><colgroup span="5" width="20%"></colgroup><tbody><tr>
+<td>Afferent Couplings: 0</td>
+<td>Efferent Couplings: 2</td>
+<td>Abstractness: 0.0</td>
+<td>Instability: 1.0</td>
+<td>Distance: 0.0</td>
+</tr></tbody></table>
+<table class=details width="100%" border="0"><colgroup span="4" width="25%"></colgroup><thead><tr>
+<th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Referencing Packages</th>
+<th>Referenced Packages</th>
+</tr></thead><tbody><tr>
+<td>
+</td><td>
+<a href="#type-webserver.TestBetServer">webserver.TestBetServer</a>
+<br><a href="#type-webserver.TestRoomDB">webserver.TestRoomDB</a>
+</td><td>
+<i>None</i>
+</td><td>
+java.lang
+<br>
+java.sql
+<br>
+org.junit
+<br>
+<a href="#package-ubet.api">ubet.api</a>
+<br>
+<a href="#package-ubet.database">ubet.database</a>
+<br>
+<a href="#package-ubet.util">ubet.util</a>
+
+</td></tr></tbody></table>
+</blockquote>
+<table width="100%" border="0"><tr>
+<td><a name="explanationSection"><h2>Explanations</a></h2></td>
+<td class=navigation align="right">[<a href="#projectSection">projects</a>] [<a href="#packageSection">packages</a>] [<a href="#explanationSection">explanations</a>]
+</td></tr></table>
+<h3>Terms</h3>
+<blockquote>
+<p>
+The following are definitions of some of the terms used
+in this report. For the most part, these definitions
+are taken from the paper
+<a href="http://www.objectmentor.com/resources/articles/oodmetrc.pdf">OO Design Quality Metrics</a>
+by Robert Martin.
+</p>
+<dl>
+<dt><a name="term-scope"><b>Scope</b></a>
+<dd>
+Anything that can contain types; either a package or project.
+</dl>
+<dl>
+<dt><a name="term-numberOfTypes"><b>Number of Types</b></a>
+<dd>
+The total number of types defined within a scope.
+</dl>
+<dl>
+<dt><a name="term-afferentCoupling"><b>Afferent Coupling</b></a>
+<dd>
+The number of types outside a scope that depend on
+types defined in the scope. (Sometimes abreviated as
+<code>Ca</code>.)
+</dl>
+<dl>
+<dt><a name="term-efferentCoupling"><b>Efferent Coupling</b></a>
+<dd>
+The number of types in a scope that depend on types
+defined outside the scope. (Sometimes abreviated as
+<code>Ce</code>.)
+</dl>
+<dl>
+<dt><a name="term-abstractness"><b>Abstractness</b></a>
+<dd>
+The number of abstract types (abstract classes and
+interfaces) divided by the total number of types.
+It ranges between zero (0.0) and one (1.0),
+where zero indicates a completely concrete scope
+and one indicates a completely abstract scope.
+</dl>
+<dl>
+<dt><a name="term-instability"><b>Instability</b></a>
+<dd>
+The ratio of efferent coupling to the total coupling.
+This value is computed as <code>Ce / (Ca + Ce)</code>
+and represents the resiliance of the scope to change.
+It ranges between zero (0.0) and one (1.0),
+where zero indicates a maximally stable scope
+and one indicates a maximally instable scope.
+</dl>
+<dl>
+<dt><a name="term-distance"><b>Distance</b></a>
+<dd>
+The normalized distance of a scope (computed as
+<code>| A + I - 1 |</code>) from the main sequence
+(<code>A + I = 1</code>). This value represents the
+degree to which stability and abstractness are balanced.
+It ranges between zero (0.0) and one (1.0),
+where zero indicates a maximally balanced scope
+and one indicates a maximally unbalanced scope.
+</dl>
+</blockquote>
+
+</body>
+
+</html>
