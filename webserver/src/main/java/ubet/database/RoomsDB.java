@@ -123,8 +123,9 @@ public class RoomsDB extends Database {
 	 * 
 	 * 
 	
+	
 	 * @return Variables * @throws SQLException * @throws SQLException * @throws
-	 *         SQLException * @throws SQLException
+	 *         SQLException * @throws SQLException * @throws SQLException
 	 */
 	public Variables addRoom() throws SQLException {
 
@@ -160,7 +161,8 @@ public class RoomsDB extends Database {
 	 * 
 	 * 
 	
-	 * @return Variables * @throws SQLException * @throws SQLException
+	
+	 * @return Variables * @throws SQLException * @throws SQLException * @throws SQLException
 	 */
 	public Variables updateRoom() throws SQLException {
 
@@ -195,8 +197,8 @@ public class RoomsDB extends Database {
 	 * 
 	
 	
-	 * @return int
-	 * @throws SQLException */
+	
+	 * @return int * @throws SQLException */
 	public int getLastInsertedId() throws SQLException {
 
 		List<RoomsDB> list = getRoomsByUser(this.adminId);
@@ -215,8 +217,9 @@ public class RoomsDB extends Database {
 	 * 
 	 * 
 	
+	
 	 * @return int * @throws SQLException * @throws SQLException * @throws
-	 *         SQLException * @throws SQLException
+	 *         SQLException * @throws SQLException * @throws SQLException
 	 */
 	public int getTotalRoomsByUser(int userId) throws SQLException {
 
@@ -230,8 +233,8 @@ public class RoomsDB extends Database {
 	 * 
 	
 	
-	 * @return List<RoomsDB>
-	 * @throws SQLException */
+	
+	 * @return List<RoomsDB> * @throws SQLException */
 	public List<RoomsDB> getAllRooms() throws SQLException {
 		
 		List<Object> newList = new ArrayList<Object>();
@@ -247,8 +250,9 @@ public class RoomsDB extends Database {
 	 * 
 	 * 
 	
+	
 	 * @return List<BetsDB> * @throws SQLException * @throws SQLException * @throws
-	 *         SQLException * @throws SQLException
+	 *         SQLException * @throws SQLException * @throws SQLException
 	 */
 	public List<RoomsDB> getRoomsByUser(int userId) throws SQLException {
 		List<Object> newList = new ArrayList<Object>();
@@ -406,8 +410,9 @@ public class RoomsDB extends Database {
 	 * 
 	 * 
 	
+	
 	 * @return boolean * @throws SQLException * @throws SQLException * @throws
-	 *         SQLException * @throws SQLException
+	 *         SQLException * @throws SQLException * @throws SQLException
 	 */
 	private boolean isValidAdminId(int curAdminId) throws SQLException {
 

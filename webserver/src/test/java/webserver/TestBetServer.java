@@ -19,13 +19,15 @@ import ubet.util.BCrypt;
 import ubet.util.StringTemplate;
 
 /**
+ * @author mdantas
+ * @version $Revision: 1.0 $
  */
 public class TestBetServer {
 
 	/**
 	 * Method test.
-	 * @throws Exception
-	 */
+	
+	 * @throws Exception */
 	@Test
 	public void test() throws Exception {
 

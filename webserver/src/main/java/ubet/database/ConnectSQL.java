@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
+ * @author mdantas
+ * @version $Revision: 1.0 $
  */
 public abstract class ConnectSQL {
 
@@ -24,8 +26,9 @@ public abstract class ConnectSQL {
 	 * 
 	 * 
 	 * 
+	
 	 * @return true if connection to server is alive, false otherwise * @throws
-	 *         SQLException * @throws SQLException * @throws SQLException * @throws SQLException
+	 *         SQLException * @throws SQLException * @throws SQLException * @throws SQLException * @throws SQLException
 	 */
 	public static boolean isConnected() throws SQLException {
 

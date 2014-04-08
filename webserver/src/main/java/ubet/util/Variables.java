@@ -1,6 +1,8 @@
 package ubet.util;
 
 /**
+ * @author mdantas
+ * @version $Revision: 1.0 $
  */
 public enum Variables {
 
@@ -31,8 +33,8 @@ public enum Variables {
 
 	/**
 	 * Method getValue.
-	 * @return int
-	 */
+	
+	 * @return int */
 	public int getValue() {
 		return value;
 	}

@@ -10,6 +10,8 @@ import java.util.TimerTask;
 import ubet.auth.AuthToken;
 
 /**
+ * @author mdantas
+ * @version $Revision: 1.0 $
  */
 public class AuthTokenManager {
 
@@ -23,8 +25,8 @@ public class AuthTokenManager {
 	 * 
 	 * @param token
 	 *            String
-	 * @throws Exception
-	 */
+	
+	 * @throws Exception */
 	public static void authenticateToken(String token) throws Exception {
 
 		if (getAuthToken(token) == null) {
@@ -45,8 +47,8 @@ public class AuthTokenManager {
 	 *            String
 	 * @param username
 	 *            String
-	 * @return boolean True if yes, False otherwise
-	 */
+	
+	 * @return boolean True if yes, False otherwise */
 	protected static boolean isUserAuthentic(String token, String username) {
 		if (!isValidToken(token))
 			return false;
@@ -101,8 +103,8 @@ public class AuthTokenManager {
 	 * 
 	 * @param token
 	 *            String
-	 * @return AuthToken
-	 */
+	
+	 * @return AuthToken */
 	protected static AuthToken getAuthToken(String token) {
 		synchronized (tokensMap) {
 			return tokensMap.get(token);
@@ -114,8 +116,8 @@ public class AuthTokenManager {
 	 * 
 	 * @param username
 	 *            String
-	 * @return String
-	 */
+	
+	 * @return String */
 	protected static String getTokenUser(String username) {
 		synchronized (usersTokens) {
 			return usersTokens.get(username);
@@ -132,8 +134,8 @@ public class AuthTokenManager {
 	/**
 	 * Returns a timer that runs a check on all expired tokens
 	 * 
-	 * @return TimerTask
-	 */
+	
+	 * @return TimerTask */
 	protected static TimerTask timerExpiredTokens() {
 		return new TimerTask() {
 			public void run() {
@@ -164,8 +166,8 @@ public class AuthTokenManager {
 	 * 
 	 * @param token
 	 *            String
-	 * @return boolean
-	 */
+	
+	 * @return boolean */
 	protected static boolean isValidToken(String token) {
 		AuthToken authToken = getAuthToken(token);
 		if (authToken == null)
@@ -180,8 +182,8 @@ public class AuthTokenManager {
 	 * 
 	 * @param authToken
 	 *            AuthToken
-	 * @return boolean
-	 */
+	
+	 * @return boolean */
 	protected static boolean isTokenExpired(AuthToken authToken) {
 		return (new Date().getTime()) - authToken.getLastDate().getTime() > TIME_TOKEN_LIMIT;
 	}

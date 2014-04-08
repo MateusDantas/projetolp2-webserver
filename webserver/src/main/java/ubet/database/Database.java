@@ -38,10 +38,11 @@ public class Database implements DBQueries {
 	 * 
 	 * 
 	 * 
+	
 	 * @return Variables * @see
 	 *         ubet.database.DBQueries#insertQuery(PreparedStatement) * @see
 	 *         ubet.database.DBQueries#insertQuery(PreparedStatement) * @see
-	 *         ubet.database.DBQueries#insertQuery(PreparedStatement)
+	 *         ubet.database.DBQueries#insertQuery(PreparedStatement) * @see ubet.database.DBQueries#insertQuery(PreparedStatement)
 	 */
 	public Variables insertQuery(PreparedStatement query) {
 
@@ -86,10 +87,11 @@ public class Database implements DBQueries {
 	 * 
 	 * 
 	 * 
+	
 	 * @return Variables * @see
 	 *         ubet.database.DBQueries#updateQuery(PreparedStatement) * @see
 	 *         ubet.database.DBQueries#updateQuery(PreparedStatement) * @see
-	 *         ubet.database.DBQueries#updateQuery(PreparedStatement)
+	 *         ubet.database.DBQueries#updateQuery(PreparedStatement) * @see ubet.database.DBQueries#updateQuery(PreparedStatement)
 	 */
 	public Variables updateQuery(PreparedStatement query) {
 
@@ -105,8 +107,8 @@ public class Database implements DBQueries {
 	 *            List<Object> The variables on the SQL Statement
 	 * 
 	 * 
-	 * @return Variables
-	 */
+	
+	 * @return Variables */
 	public Variables changeQuery(final String pattern, final List<Object> values) {
 
 		PreparedStatement newStatement = null;
@@ -135,10 +137,11 @@ public class Database implements DBQueries {
 	 * 
 	 * 
 	 * 
+	
 	 * @return List<HashMap<String,Object>> * @see
 	 *         ubet.database.DBQueries#getQuery(PreparedStatement) * @see
 	 *         ubet.database.DBQueries#getQuery(PreparedStatement) * @see
-	 *         ubet.database.DBQueries#getQuery(PreparedStatement)
+	 *         ubet.database.DBQueries#getQuery(PreparedStatement) * @see ubet.database.DBQueries#getQuery(PreparedStatement)
 	 */
 	public List<HashMap<String, Object>> getQuery(PreparedStatement query) {
 
@@ -225,8 +228,8 @@ public class Database implements DBQueries {
 	 * 
 	 * 
 	 * 
-	 * @return PreparedStatement
-	 */
+	
+	 * @return PreparedStatement */
 	public PreparedStatement buildStatements(String pattern, List<Object> values) {
 
 		PreparedStatement newStatement = null;

@@ -8,6 +8,8 @@ import ubet.database.UserDB;
 import ubet.util.Variables;
 
 /**
+ * @author mdantas
+ * @version $Revision: 1.0 $
  */
 public abstract class Users {
 
@@ -28,7 +30,8 @@ public abstract class Users {
 	 *            User`s language
 	 * 
 	 * 
-	 * @return Variables of possible outcomes * @throws SQLException
+	
+	 * @return Variables of possible outcomes * @throws SQLException * @throws SQLException
 	 */
 	public static int createUser(String firstName, String secondName,
 			String email, String nickname, String password, int language)
@@ -66,8 +69,9 @@ public abstract class Users {
 	 *            User`s password
 	 * 
 	 * 
+	
 	 * @return true if user`s was successfully authenticated * @throws
-	 *         SQLException
+	 *         SQLException * @throws SQLException
 	 */
 	public static boolean loginUser(String nickname, String password)
 			throws SQLException {
@@ -84,8 +88,8 @@ public abstract class Users {
 	/**
 	 * Get all user's registered in the database
 	 * 
-	 * @return List<UserDB>
-	 */
+	
+	 * @return List<UserDB> */
 	public static List<UserDB> getAllUsers() {
 
 		UserDB newUser = new UserDB();
@@ -102,7 +106,8 @@ public abstract class Users {
 	 *            User`s new password
 	 * 
 	 * 
-	 * @return Variables of possible outcomes * @throws SQLException
+	
+	 * @return Variables of possible outcomes * @throws SQLException * @throws SQLException
 	 */
 	public static int changePassword(String nickname, String newPassword)
 			throws SQLException {
@@ -125,7 +130,8 @@ public abstract class Users {
 	 *            User`s nickname
 	 * 
 	 * 
-	 * @return The number of coins that the user`s has * @throws SQLException
+	
+	 * @return The number of coins that the user`s has * @throws SQLException * @throws SQLException
 	 */
 	public static int getCoins(String nickname) throws SQLException {
 
@@ -145,7 +151,8 @@ public abstract class Users {
 	 *            User`s nickname
 	 * 
 	 * 
-	 * @return The score of user * @throws SQLException
+	
+	 * @return The score of user * @throws SQLException * @throws SQLException
 	 */
 	public static int getScore(String nickname) throws SQLException {
 
@@ -164,9 +171,9 @@ public abstract class Users {
 	 * @param nickname
 	 * 
 	 * 
-	 * @return int
-	 * @throws SQLException
-	 */
+	
+	
+	 * @return int * @throws SQLException */
 	public static int getUserId(String nickname) throws SQLException {
 
 		UserDB newUser = new UserDB(nickname);
@@ -184,9 +191,9 @@ public abstract class Users {
 	 * 
 	 * @param userid
 	 *            int
-	 * @return String
-	 * @throws SQLException
-	 */
+	
+	
+	 * @return String * @throws SQLException */
 	public static String getNickname(int userid) throws SQLException {
 
 		UserDB newUser = new UserDB();
@@ -204,9 +211,9 @@ public abstract class Users {
 	 * @param newCoins
 	 * 
 	 * 
-	 * @return boolean True if successful or False otherwise
-	 * @throws SQLException
-	 */
+	
+	
+	 * @return boolean True if successful or False otherwise * @throws SQLException */
 	protected static boolean setCoins(String nickname, int newCoins)
 			throws SQLException {
 
@@ -230,9 +237,9 @@ public abstract class Users {
 	 * @param newScore
 	 * 
 	 * 
-	 * @return boolean True if successful or False otherwise
-	 * @throws SQLException
-	 */
+	
+	
+	 * @return boolean True if successful or False otherwise * @throws SQLException */
 	protected static boolean setScore(String nickname, int newScore)
 			throws SQLException {
 

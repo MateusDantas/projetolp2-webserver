@@ -74,7 +74,8 @@ public class TeamsDB extends Database {
 	
 	
 	
-	 * @return Variables * @throws SQLException * @throws SQLException * @throws SQLException
+	
+	 * @return Variables * @throws SQLException * @throws SQLException * @throws SQLException * @throws SQLException
 	 */
 	public Variables addTeam() throws SQLException {
 
@@ -99,7 +100,8 @@ public class TeamsDB extends Database {
 	
 	
 	
-	 * @return Variables * @throws SQLException * @throws SQLException * @throws SQLException
+	
+	 * @return Variables * @throws SQLException * @throws SQLException * @throws SQLException * @throws SQLException
 	 */
 	public Variables updateTeam() throws SQLException {
 

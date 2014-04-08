@@ -5,6 +5,8 @@ import java.sql.SQLException;
 import ubet.database.TeamsDB;
 import ubet.util.Variables;
 
+/**
+ */
 public class Teams {
 
 	/**
@@ -12,9 +14,9 @@ public class Teams {
 	 * Object otherwise just return the object
 	 * 
 	 * @param teamName
-	 * @return TeamsDB
-	 * @throws SQLException
-	 */
+	
+	
+	 * @return TeamsDB * @throws SQLException */
 	public static TeamsDB updateTeam(String teamName) throws SQLException {
 
 		TeamsDB team = new TeamsDB();
@@ -38,9 +40,9 @@ public class Teams {
 	 * 
 	 * @param teamName
 	 *            String
-	 * @return int
-	 * @throws SQLException
-	 */
+	
+	
+	 * @return int * @throws SQLException */
 	public static int getTeamId(String teamName) throws SQLException {
 
 		return updateTeam(teamName).getId();
@@ -52,9 +54,9 @@ public class Teams {
 	 * 
 	 * @param teamId
 	 *            int Team's ID
-	 * @return String or null if the team doesn't exist
-	 * @throws SQLException
-	 */
+	
+	
+	 * @return String or null if the team doesn't exist * @throws SQLException */
 	public static String getTeamName(int teamId) throws SQLException {
 
 		TeamsDB team = new TeamsDB();

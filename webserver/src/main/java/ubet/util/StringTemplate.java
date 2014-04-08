@@ -3,6 +3,8 @@ package ubet.util;
 import java.util.HashMap;
 
 /**
+ * @author mdantas
+ * @version $Revision: 1.0 $
  */
 public class StringTemplate {
 
@@ -19,9 +21,9 @@ public class StringTemplate {
 	/**
 	 * Method getString.
 	 * @param values HashMap<String,Object>
-	 * @return String
-	 * @throws Exception
-	 */
+	
+	
+	 * @return String * @throws Exception */
 	public String getString(HashMap<String, Object> values) throws Exception {
 
 		String templateResult = this.templateText;
@@ -46,8 +48,8 @@ public class StringTemplate {
 
 	/**
 	 * Method getTemplateText.
-	 * @return String
-	 */
+	
+	 * @return String */
 	public String getTemplateText() {
 		return templateText;
 	}

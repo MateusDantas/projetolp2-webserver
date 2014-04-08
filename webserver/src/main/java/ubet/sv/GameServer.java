@@ -16,6 +16,8 @@ import ubet.database.GamesDB;
 import ubet.util.StringTemplate;
 
 /**
+ * @author mdantas
+ * @version $Revision: 1.0 $
  */
 @Path("/games")
 public class GameServer {
@@ -26,9 +28,9 @@ public class GameServer {
 	 * @param username String
 	 * @param round int
 	 * @param token String
-	 * @return Response
-	 * @throws Exception
-	 */
+	
+	
+	 * @return Response * @throws Exception */
 	@Path("/getgamesbyround")
 	@GET
 	@Produces("text/html; charset=ISO-8859-15")

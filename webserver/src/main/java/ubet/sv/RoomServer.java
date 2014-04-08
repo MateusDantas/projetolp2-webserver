@@ -14,6 +14,8 @@ import ubet.database.UserDB;
 import ubet.util.StringTemplate;
 
 /**
+ * @author mdantas
+ * @version $Revision: 1.0 $
  */
 @Path("/rooms")
 public class RoomServer {
@@ -29,8 +31,8 @@ public class RoomServer {
 	 * @param token
 	
 	
-	 * @return Response
-	 * @throws Exception */
+	
+	 * @return Response * @throws Exception */
 	@Path("/createroom")
 	@GET
 	@Produces("text/html")
@@ -67,8 +69,8 @@ public class RoomServer {
 	 * @param requestedUser
 	
 	
-	 * @return Response
-	 * @throws Exception */
+	
+	 * @return Response * @throws Exception */
 	@Path("/getroomscreatedbyuser")
 	@GET
 	@Produces("text/html")
@@ -123,8 +125,8 @@ public class RoomServer {
 	 * @param token
 	
 	
-	 * @return Response
-	 * @throws Exception */
+	
+	 * @return Response * @throws Exception */
 	@Path("/entertoroom")
 	@GET
 	@Produces("text/html")
@@ -157,8 +159,8 @@ public class RoomServer {
 	 * @param token
 	
 	
-	 * @return Response
-	 * @throws Exception */
+	
+	 * @return Response * @throws Exception */
 	@Path("/usersinroom")
 	@GET
 	@Produces("text/html")
@@ -215,8 +217,8 @@ public class RoomServer {
 	 * @param requestedUser
 	
 	
-	 * @return Response
-	 * @throws Exception */
+	
+	 * @return Response * @throws Exception */
 	@Path("/roomsbyuser")
 	@GET
 	@Produces("text/html")
@@ -273,9 +275,9 @@ public class RoomServer {
 	 * Method getAllRooms.
 	 * @param username String
 	 * @param token String
-	 * @return Response
-	 * @throws Exception
-	 */
+	
+	
+	 * @return Response * @throws Exception */
 	@Path("/getallrooms")
 	@GET
 	@Produces("text/html")
@@ -332,8 +334,8 @@ public class RoomServer {
 	 * @param token
 	
 	
-	 * @return Response
-	 * @throws Exception */
+	
+	 * @return Response * @throws Exception */
 	@Path("/pointsuser")
 	@GET
 	@Produces("text/html")
@@ -368,8 +370,8 @@ public class RoomServer {
 	 * @param token
 	
 	
-	 * @return Response
-	 * @throws Exception */
+	
+	 * @return Response * @throws Exception */
 	@Path("/isuserinroom")
 	@GET
 	@Produces("text/html")

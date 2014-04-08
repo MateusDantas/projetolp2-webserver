@@ -11,6 +11,8 @@ import ubet.database.*;
 import ubet.util.Variables;
 
 /**
+ * @author mdantas
+ * @version $Revision: 1.0 $
  */
 public abstract class Bets {
 
@@ -48,7 +50,8 @@ public abstract class Bets {
 	 * @param isExtraBet
 	
 	
-	 * @return Variables * @throws SQLException */
+	 * @return Variables * @throws SQLException * @throws SQLException
+	 */
 	public static int makeBet(String username, int roomId, int round,
 			int gameId, int firstTeamScore, int secondTeamScore,
 			boolean isExtraBet) throws SQLException {
@@ -130,9 +133,8 @@ public abstract class Bets {
 	 * @param betId
 	 * @param scoreOne
 	 * @param scoreTwo
-	
-	
-	 * @return Variables * @throws SQLException */
+	 * @return Variables * @throws SQLException * @throws SQLException
+	 */
 	public static int changeBet(int betId, int scoreOne, int scoreTwo)
 			throws SQLException {
 
@@ -174,7 +176,8 @@ public abstract class Bets {
 	 * @param gameId
 	
 	
-	 * @return List<BetsDB> * @throws SQLException */
+	 * @return List<BetsDB> * @throws SQLException * @throws SQLException
+	 */
 	public static List<BetsDB> betsByUserByGames(String username, int roomId,
 			int round, int gameId) throws SQLException {
 
@@ -195,7 +198,8 @@ public abstract class Bets {
 	 * @param roomId
 	
 	
-	 * @return List<BetsDB> * @throws SQLException */
+	 * @return List<BetsDB> * @throws SQLException * @throws SQLException
+	 */
 	public static List<BetsDB> betsByUserByRoom(String username, int roomId)
 			throws SQLException {
 
@@ -215,7 +219,8 @@ public abstract class Bets {
 	 * @param username
 	
 	
-	 * @return List<BetsDB> * @throws SQLException */
+	 * @return List<BetsDB> * @throws SQLException * @throws SQLException
+	 */
 	public static List<BetsDB> betsByUser(String username) throws SQLException {
 
 		int userId = Users.getUserId(username);
@@ -259,8 +264,8 @@ public abstract class Bets {
 	 * 
 	 * @param round
 	
-	 * @return int
-	 */
+	
+	 * @return int */
 	protected static int parseRound(int round) {
 
 		if (round <= GROUP_ROUND_GAMES)
@@ -279,8 +284,8 @@ public abstract class Bets {
 	 * Get the correct multiplier for each round
 	 * @param round
 	
-	 * @return int
-	 */
+	
+	 * @return int */
 	protected static int getRoundMultiplier(int round) {
 
 		switch (parseRound(round)) {

@@ -16,13 +16,15 @@ import ubet.sv.Templates;
 import ubet.util.StringTemplate;
 
 /**
+ * @author mdantas
+ * @version $Revision: 1.0 $
  */
 public class TestRoomDB {
 
 	/**
 	 * Method test.
-	 * @throws SQLException
-	 */
+	
+	 * @throws SQLException */
 	@Test
 	public void test() throws SQLException {
 		

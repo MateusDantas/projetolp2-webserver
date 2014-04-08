@@ -3,6 +3,8 @@ package ubet.auth;
 import java.util.Date;
 
 /**
+ * @author mdantas
+ * @version $Revision: 1.0 $
  */
 public class AuthToken {
 
@@ -26,32 +28,32 @@ public class AuthToken {
 
 	/**
 	 * Get object's token
-	 * @return String
-	 */
+	
+	 * @return String */
 	public String getToken() {
 		return token;
 	}
 
 	/**
 	 * Get object's username
-	 * @return String
-	 */
+	
+	 * @return String */
 	public String getUsername() {
 		return username;
 	}
 
 	/**
 	 * Method getFirstTokenDate.
-	 * @return Date
-	 */
+	
+	 * @return Date */
 	public Date getFirstTokenDate() {
 		return firstTokenDate;
 	}
 
 	/**
 	 * Method getLastDate.
-	 * @return Date
-	 */
+	
+	 * @return Date */
 	public Date getLastDate() {
 		return lastDate;
 	}

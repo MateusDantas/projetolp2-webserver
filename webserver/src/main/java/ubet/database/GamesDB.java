@@ -119,7 +119,8 @@ public class GamesDB extends Database {
 	 * 
 	 * 
 	
-	 * @return Variables * @throws SQLException * @throws SQLException * @throws SQLException
+	
+	 * @return Variables * @throws SQLException * @throws SQLException * @throws SQLException * @throws SQLException
 	 */
 	public Variables addGames() throws SQLException {
 
@@ -145,7 +146,8 @@ public class GamesDB extends Database {
 	 * 
 	 * 
 	
-	 * @return Variables * @throws SQLException * @throws SQLException * @throws SQLException
+	
+	 * @return Variables * @throws SQLException * @throws SQLException * @throws SQLException * @throws SQLException
 	 */
 	public Variables updateGame() throws SQLException {
 
@@ -244,8 +246,8 @@ public class GamesDB extends Database {
 	 * 
 	 * @param round
 	
-	 * @return List<GamesDB>
-	 */
+	
+	 * @return List<GamesDB> */
 	public List<GamesDB> getGamesByRound(int round) {
 
 		List<Object> newList = new ArrayList<Object>();
@@ -415,8 +417,8 @@ public class GamesDB extends Database {
 
 	/**
 	 * Method getScoreTwo.
-	 * @return int
-	 */
+	
+	 * @return int */
 	public int getScoreTwo() {
 		return scoreTwo;
 	}
@@ -431,8 +433,8 @@ public class GamesDB extends Database {
 
 	/**
 	 * Method getScoreOne.
-	 * @return int
-	 */
+	
+	 * @return int */
 	public int getScoreOne() {
 		return scoreOne;
 	}

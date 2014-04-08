@@ -3,6 +3,8 @@ package ubet.sv;
 import javax.ws.rs.ext.Provider;
 
 /**
+ * @author mdantas
+ * @version $Revision: 1.0 $
  */
 @Provider
 public class Templates {

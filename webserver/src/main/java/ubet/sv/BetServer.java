@@ -16,6 +16,8 @@ import ubet.database.UserDB;
 import ubet.util.StringTemplate;
 
 /**
+ * @author mdantas
+ * @version $Revision: 1.0 $
  */
 @Path("/bets")
 public class BetServer {
@@ -39,9 +41,9 @@ public class BetServer {
 	 *            int
 	 * @param token
 	 *            String
-	 * @return Response
-	 * @throws Exception
-	 */
+	
+	
+	 * @return Response * @throws Exception */
 	@Path("/makebet")
 	@GET
 	@Produces("text/html")
@@ -83,9 +85,9 @@ public class BetServer {
 	 *            int
 	 * @param token
 	 *            String
-	 * @return Response
-	 * @throws Exception
-	 */
+	
+	
+	 * @return Response * @throws Exception */
 	@Path("/changebet")
 	@GET
 	@Produces("text/html")
@@ -120,9 +122,9 @@ public class BetServer {
 	 *            int
 	 * @param token
 	 *            String
-	 * @return Response
-	 * @throws Exception
-	 */
+	
+	
+	 * @return Response * @throws Exception */
 	@Path("betsbyuserbyroom")
 	@GET
 	@Produces("text/html")
@@ -180,9 +182,9 @@ public class BetServer {
 	 *            int
 	 * @param token
 	 *            String
-	 * @return Response
-	 * @throws Exception
-	 */
+	
+	
+	 * @return Response * @throws Exception */
 	@Path("/betsbyuserbygame")
 	@GET
 	@Produces("text/html")
@@ -238,9 +240,9 @@ public class BetServer {
 	 *            String
 	 * @param token
 	 *            String
-	 * @return Response
-	 * @throws Exception
-	 */
+	
+	
+	 * @return Response * @throws Exception */
 	@Path("/betsbyuser")
 	@GET
 	@Produces("text/html")

@@ -3,6 +3,8 @@ package ubet.util;
 import java.util.regex.*;
 
 /**
+ * @author mdantas
+ * @version $Revision: 1.0 $
  */
 public class EmailValidator {
 
@@ -20,8 +22,8 @@ public class EmailValidator {
 	/**
 	 * Method isEmailValid.
 	 * @param hex String
-	 * @return boolean
-	 */
+	
+	 * @return boolean */
 	public boolean isEmailValid(final String hex) {
 		
 		matcher = pattern.matcher(hex);

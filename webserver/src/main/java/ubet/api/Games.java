@@ -19,6 +19,8 @@ import ubet.util.JsonReader;
 import ubet.util.Variables;
 
 /**
+ * @author mdantas
+ * @version $Revision: 1.0 $
  */
 public class Games {
 
@@ -30,10 +32,10 @@ public class Games {
 	 * @param link String
 	 * @param rodada int
 	 * @param name String
-	 * @throws IOException
-	 * @throws ParseException
-	 * @throws SQLException
-	 */
+	
+	
+	
+	 * @throws IOException * @throws ParseException * @throws SQLException */
 	public static void updateGames(String link, int rodada, String name)
 			throws IOException, ParseException, SQLException {
 
@@ -77,9 +79,9 @@ public class Games {
 	 * @param scoreTwo int
 	 * @param round int
 	 * @param date Date
-	 * @return boolean
-	 * @throws SQLException
-	 */
+	
+	
+	 * @return boolean * @throws SQLException */
 	public static boolean createGame(int firstTeamId, int secondTeamId,
 			int scoreOne, int scoreTwo, int round, Date date)
 			throws SQLException {
@@ -96,8 +98,8 @@ public class Games {
 	/**
 	 * Get game by its ID
 	 * @param id int
-	 * @return GamesDB
-	 */
+	
+	 * @return GamesDB */
 	public static GamesDB getGameById(int id) {
 
 		GamesDB game = new GamesDB();
@@ -109,8 +111,8 @@ public class Games {
 	/**
 	 * Get a list of games by round
 	 * @param round int
-	 * @return List<GamesDB>
-	 */
+	
+	 * @return List<GamesDB> */
 	public static List<GamesDB> getGamesByRound(int round) {
 
 		GamesDB game = new GamesDB();

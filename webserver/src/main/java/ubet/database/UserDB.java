@@ -111,9 +111,10 @@ public class UserDB extends Database {
 	 * 
 	 * 
 	
+	
 	 * @return Variables.(SERVER_DOWN, INVALID_USERNAME, INVALID_EMAIL,
 	 *         INVALID_NAME, INVALID_PASSWORD, USERNAME_EXISTS, EMAIL_EXISTS) * @throws
-	 *         SQLException * @throws SQLException * @throws SQLException * @throws SQLException
+	 *         SQLException * @throws SQLException * @throws SQLException * @throws SQLException * @throws SQLException
 	 */
 	public Variables addUser() throws SQLException {
 
@@ -160,10 +161,11 @@ public class UserDB extends Database {
 	 * 
 	 * 
 	
+	
 	 * @return Variables.(SERVER_DOWN, INVALID_USERNAME, INVALID_EMAIL,
 	 *         INVALID_NAME, INVALID_PASSWORD,USER_DOES_NOT_EXIST,
 	 *         USERNAME_EXISTS, EMAIL_EXISTS) * @throws SQLException * @throws
-	 *         SQLException * @throws SQLException * @throws SQLException
+	 *         SQLException * @throws SQLException * @throws SQLException * @throws SQLException
 	 */
 	public Variables updateUser() throws SQLException {
 
@@ -213,8 +215,9 @@ public class UserDB extends Database {
 	 * 
 	 * 
 	
+	
 	 * @return True if exists such user, False otherwise * @throws SQLException
-	 *         * @throws SQLException * @throws SQLException * @throws SQLException
+	 *         * @throws SQLException * @throws SQLException * @throws SQLException * @throws SQLException
 	 */
 	public boolean userExists(String str) throws SQLException {
 
@@ -235,8 +238,9 @@ public class UserDB extends Database {
 	 * 
 	 * 
 	
+	
 	 * @return The ID of such user * @throws SQLException * @throws SQLException
-	 *         * @throws SQLException * @throws SQLException
+	 *         * @throws SQLException * @throws SQLException * @throws SQLException
 	 */
 	public int getUserByEmail(String email, boolean flagToUpdate)
 			throws SQLException {
@@ -257,8 +261,9 @@ public class UserDB extends Database {
 	 * 
 	 * 
 	
+	
 	 * @return The ID of such user * @throws SQLException * @throws SQLException
-	 *         * @throws SQLException * @throws SQLException
+	 *         * @throws SQLException * @throws SQLException * @throws SQLException
 	 */
 	public int getUserByNickname(String nowNickname, boolean flagToUpdate)
 			throws SQLException {
@@ -281,8 +286,9 @@ public class UserDB extends Database {
 	 * 
 	 * 
 	
+	
 	 * @return The ID of such user * @throws SQLException * @throws SQLException
-	 *         * @throws SQLException * @throws SQLException
+	 *         * @throws SQLException * @throws SQLException * @throws SQLException
 	 */
 	public int getUserById(int nowUserId, boolean flagToUpdate)
 			throws SQLException {
@@ -299,8 +305,9 @@ public class UserDB extends Database {
 	 * 
 	 * 
 	
+	
 	 * @return The ID of such user or -1 if it doesn't exist * @throws
-	 *         SQLException * @throws SQLException * @throws SQLException * @throws SQLException
+	 *         SQLException * @throws SQLException * @throws SQLException * @throws SQLException * @throws SQLException
 	 */
 	public int getUser() throws SQLException {
 
@@ -312,8 +319,8 @@ public class UserDB extends Database {
 	/**
 	 * 
 	
-	 * @return List<UserDB>
-	 */
+	
+	 * @return List<UserDB> */
 	public List<UserDB> getAllUsers() {
 
 		List<Object> newList = new ArrayList<Object>();
@@ -326,8 +333,8 @@ public class UserDB extends Database {
 	 * @param pattern
 	 * @param values
 	
-	 * @return List<UserDB>
-	 */
+	
+	 * @return List<UserDB> */
 	public List<UserDB> getUser(String pattern, List<Object> values) {
 
 		PreparedStatement newStatement = null;
@@ -375,7 +382,8 @@ public class UserDB extends Database {
 	 * 
 	 * 
 	
-	 * @return int * @throws SQLException * @throws SQLException * @throws SQLException
+	
+	 * @return int * @throws SQLException * @throws SQLException * @throws SQLException * @throws SQLException
 	 */
 	public int getUser(String pattern, List<Object> values, boolean flagToUpdate)
 			throws SQLException {

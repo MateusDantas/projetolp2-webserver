@@ -10,6 +10,8 @@ import ubet.api.Bets;
 import ubet.api.Games;
 
 /**
+ * @author mdantas
+ * @version $Revision: 1.0 $
  */
 public class updateSystem {
 
@@ -38,8 +40,8 @@ public class updateSystem {
 
 	/**
 	 * Method timerRefreshSystem.
-	 * @return TimerTask
-	 */
+	
+	 * @return TimerTask */
 	protected static TimerTask timerRefreshSystem() {
 
 		return new TimerTask() {

@@ -66,7 +66,8 @@ public class UserRoomDB extends UserDB {
 	
 	
 	
-	 * @return Variables * @throws SQLException * @throws SQLException * @throws SQLException
+	
+	 * @return Variables * @throws SQLException * @throws SQLException * @throws SQLException * @throws SQLException
 	 */
 	public Variables addUserRoom() throws SQLException {
 
@@ -95,7 +96,8 @@ public class UserRoomDB extends UserDB {
 	
 	
 	
-	 * @return Variables * @throws SQLException * @throws SQLException * @throws SQLException
+	
+	 * @return Variables * @throws SQLException * @throws SQLException * @throws SQLException * @throws SQLException
 	 */
 	public Variables updateUserRoom() throws SQLException {
 
@@ -125,7 +127,8 @@ public class UserRoomDB extends UserDB {
 	
 	
 	
-	 * @return boolean * @throws SQLException * @throws SQLException * @throws SQLException
+	
+	 * @return boolean * @throws SQLException * @throws SQLException * @throws SQLException * @throws SQLException
 	 */
 	public boolean setUserRoom(int userId2, int roomId2) throws SQLException {
 		return setUserRoom(userId2, roomId2, true);
@@ -139,7 +142,8 @@ public class UserRoomDB extends UserDB {
 	
 	
 	
-	 * @return boolean * @throws SQLException * @throws SQLException * @throws SQLException
+	
+	 * @return boolean * @throws SQLException * @throws SQLException * @throws SQLException * @throws SQLException
 	 */
 	public boolean setUserRoom(int userId2, int roomId2, boolean flagToUpdate)
 			throws SQLException {
@@ -199,8 +203,8 @@ public class UserRoomDB extends UserDB {
 	 * 
 	 * @param roomId
 	
-	 * @return List<UserRoomDB>
-	 */
+	
+	 * @return List<UserRoomDB> */
 	public List<UserRoomDB> getUsersInRoom(int roomId) {
 		List <Object> newList = new ArrayList<Object>();
 		newList.add(roomId);
@@ -214,8 +218,8 @@ public class UserRoomDB extends UserDB {
 	 * 
 	 * @param userId
 	
-	 * @return List<UserRoomDB>
-	 */
+	
+	 * @return List<UserRoomDB> */
 	public List<UserRoomDB> getRoomsByUser(int userId) {
 		List <Object> newList = new ArrayList<Object>();
 		newList.add(userId);
@@ -279,7 +283,8 @@ public class UserRoomDB extends UserDB {
 	
 	
 	
-	 * @return boolean * @throws SQLException * @throws SQLException * @throws SQLException
+	
+	 * @return boolean * @throws SQLException * @throws SQLException * @throws SQLException * @throws SQLException
 	 */
 	private boolean isValidUserId(int userId2) throws SQLException {
 

@@ -16,6 +16,8 @@ import ubet.util.StringTemplate;
 import ubet.util.Variables;
 
 /**
+ * @author mdantas
+ * @version $Revision: 1.0 $
  */
 @Path("/users")
 public class UserServer {
@@ -30,9 +32,9 @@ public class UserServer {
 	 * @param username String
 	 * @param password String
 	 * @param language int
-	 * @return Response
-	 * @throws Exception
-	 */
+	
+	
+	 * @return Response * @throws Exception */
 	@Path("/createuser")
 	@GET
 	@Produces("text/html")
@@ -60,9 +62,9 @@ public class UserServer {
 	 * Method loginUser.
 	 * @param username String
 	 * @param password String
-	 * @return Response
-	 * @throws Exception
-	 */
+	
+	
+	 * @return Response * @throws Exception */
 	@Path("/login")
 	@GET
 	@Produces("text/html")
@@ -103,9 +105,9 @@ public class UserServer {
 	 * @param username String
 	 * @param newPassword String
 	 * @param token String
-	 * @return Response
-	 * @throws Exception
-	 */
+	
+	
+	 * @return Response * @throws Exception */
 	@Path("/changepassword")
 	@GET
 	@Produces("text/html")
@@ -135,8 +137,8 @@ public class UserServer {
 	 * Method refreshToken.
 	 * @param username String
 	 * @param token String
-	 * @throws Exception
-	 */
+	
+	 * @throws Exception */
 	@Path("/refreshtoken")
 	@GET
 	@Produces("text/html")
@@ -150,9 +152,9 @@ public class UserServer {
 	 * Method logoffUser.
 	 * @param username String
 	 * @param token String
-	 * @return Response
-	 * @throws Exception
-	 */
+	
+	
+	 * @return Response * @throws Exception */
 	@Path("/logoff")
 	@GET
 	@Produces("text/html")
@@ -182,9 +184,9 @@ public class UserServer {
 	 * @param username String
 	 * @param token String
 	 * @param requestedUser String
-	 * @return Response
-	 * @throws Exception
-	 */
+	
+	
+	 * @return Response * @throws Exception */
 	@Path("/getcoins")
 	@GET
 	@Produces("text/html")
@@ -217,9 +219,9 @@ public class UserServer {
 	 * Method getAllUsers.
 	 * @param username String
 	 * @param token String
-	 * @return Response
-	 * @throws Exception
-	 */
+	
+	
+	 * @return Response * @throws Exception */
 	@Path("/getallusers")
 	@GET
 	@Produces("text/html")
@@ -269,9 +271,9 @@ public class UserServer {
 	 * @param username String
 	 * @param token String
 	 * @param requestedUser String
-	 * @return Response
-	 * @throws Exception
-	 */
+	
+	
+	 * @return Response * @throws Exception */
 	@Path("/getscore")
 	@GET
 	@Produces("text/html")
