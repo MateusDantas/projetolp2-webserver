@@ -14,7 +14,7 @@ public abstract class ConnectSQL {
 
 	private static String DB_URL = "jdbc:mysql://192.241.241.32:3306/ubet";
 	private static String USERNAME = "mdantas";
-	private static String PASSWORD = "cwNwCGChqVAqPRdK";
+	private static String PASSWORD = "";
 	protected static Connection dbConnection = null;
 	
 
